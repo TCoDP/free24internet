@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Internet — Your secure access to the network</title>
+
+    <meta name="description" content="Free Internet — a professional service for data protection online. Bank-grade encryption, anonymity, and ultra-fast servers for all devices.">
+    <meta name="keywords" content="free internet, stable access, data protection, online anonymity, secure internet, traffic encryption, privacy">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://free24internet.vip/assets/img/hero-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Professional data protection and traffic encryption. Ultra-fast servers 24/7.">
+
+    <meta property="og:title" content="Free Internet — Your secure access to the network">
+    <meta property="og:description" content="Secure access to the network with no speed limits. Data encryption and complete anonymity on any devices.">
+    <meta property="og:url" content="https://free24internet.vip/en/">
+    <meta name="twitter:title" content="Free Internet — Your secure access to the network">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#b91c1c',
+                        'primary-hover': '#991b1b',
+                        dark: '#111827',
+                        light: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        @keyframes pulse-custom {
+            0% { box-shadow: 0 0 0 0 rgba(185, 28, 28, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(185, 28, 28, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(185, 28, 28, 0); }
+        }
+        .animate-pulse-custom {
+            animation: pulse-custom 2s infinite;
+        }
+
+        @keyframes spin-custom { 
+            to { transform: rotate(360deg); } 
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #cbd5e1;
+            border-top-color: #b91c1c;
+            border-radius: 50%;
+            animation: spin-custom 1s linear infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s;
+        }
+
+        .hero-slide {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            pointer-events: none;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 10;
+            pointer-events: all;
+        }
+        .slide-content-inner {
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease-out 0.3s;
+        }
+        .hero-slide.active .slide-content-inner {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 500px;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #b91c1c;
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.open {
+            transform: translateY(0);
+        }
+
+        .modal-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .modal-content {
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        /* Hide scrollbar for quiz progress */
+        .quiz-step { display: none; }
+        .quiz-step.active { display: block; animation: fadeIn 0.5s; }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.webvisor.org/metrika/tag_ww.js?id=108456982', 'ym');      ym(108456982, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script>  <!-- /Yandex.Metrika counter -->
+</head>
+<body class="bg-light text-slate-700 leading-relaxed">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-[1000] bg-gray-900/95 backdrop-blur-md shadow-lg">
+        <nav class="max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-white text-xl md:text-2xl font-black flex items-center gap-2">
+                <span class="text-primary">FREE</span>INTERNET
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="/en/#about" class="text-gray-300 hover:text-white font-semibold text-sm transition-colors">About Us</a>
+                <a href="/en/#features" class="text-gray-300 hover:text-white font-semibold text-sm transition-colors">Features</a>
+                <a href="/en/#pricing" class="text-gray-300 hover:text-white font-semibold text-sm transition-colors">Pricing</a>
+                <a href="/en/#faq" class="text-gray-300 hover:text-white font-semibold text-sm transition-colors">FAQ</a>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-6">
+                <!-- Language Switcher -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-gray-300 hover:text-white font-semibold text-sm transition-colors">
+                        RU
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100 z-50">
+                        <div class="p-2 flex flex-col gap-1">
+                            <a href="/" class="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-50 text-primary font-bold text-sm">
+                                Русский
+                                <span class="text-base">🇷🇺</span>
+                            </a>
+                            <a href="/en/" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-primary font-semibold text-sm transition-colors">
+                                English
+                                <span class="text-base">🇬🇧</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="openModal()" class="bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all transform hover:-translate-y-0.5 animate-pulse-custom">Connect</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[1001] bg-white flex flex-col pb-8">
+        <!-- Menu Header -->
+        <div class="flex justify-between items-center p-4 border-b border-slate-200 mt-2 mb-2">
+            <a href="#" class="text-dark text-xl font-black flex items-center gap-2 pl-2">
+                <span class="text-primary">FREE</span>INTERNET
+            </a>
+            <button id="close-menu-btn" class="p-1.5 border-2 border-amber-500 rounded-lg text-slate-800 mr-2 flex items-center justify-center bg-white transition-all hover:bg-slate-50 focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Menu Links -->
+        <div class="flex flex-col px-6 mt-2">
+            <a href="/en/#about" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">About Us</a>
+            <a href="/en/#features" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">Features</a>
+            <a href="/en/#pricing" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">Pricing & Services</a>
+            <a href="/en/#reviews" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">Reviews</a>
+            <a href="/en/#faq" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">FAQ</a>
+        </div>
+        
+        <!-- Menu Footer -->
+        <div class="px-6 mt-auto flex flex-col pt-8">
+            <div class="flex items-center justify-center gap-4 mb-8">
+                <a href="/" class="px-4 py-2 text-slate-600 font-semibold hover:bg-slate-50 rounded-lg transition-colors flex items-center gap-2"><span class="text-xl">🇷🇺</span> RU</a>
+                <a href="/en/" class="px-4 py-2 bg-slate-100 text-primary font-bold rounded-lg flex items-center gap-2"><span class="text-xl">🇬🇧</span> EN</a>
+            </div>
+            <div class="flex items-center gap-3 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.21-1.12-.33-1.08-.7.02-.19.27-.39.75-.59 2.95-1.28 4.91-2.13 5.89-2.53 2.79-1.15 3.37-1.35 3.76-1.36.09 0 .28.02.39.11.09.07.12.18.13.26 0 .04.01.12.01.19z"/></svg>
+                <a href="https://t.me/free24_internet_bot" class="text-xl font-extrabold text-dark hover:text-primary transition-colors">Support Service</a>
+            </div>
+            <button onclick="window.location.href='https://t.me/free24_internet_bot'; closeMobileMenu()" class="w-full bg-[#991b1b] hover:bg-[#7f1d1d] text-white py-4 rounded-xl font-bold text-lg text-center transition-all shadow-md">Connect</button>
+        </div>
+    </div>
+
+    <!-- Promo Banner -->
+    <div class="mt-[72px] md:mt-[76px] bg-amber-500 text-gray-900 text-center py-2 px-4 font-extrabold text-sm md:text-base">
+        🔥 Only today! Secure internet at maximum speed.
+    </div>
+
+    <!-- Big Hero Slider -->
+    <div class="relative w-full flex flex-col bg-dark min-h-[600px] h-auto md:h-[calc(100vh-110px)] pb-32 md:pb-0">
+        <div class="relative flex-grow w-full h-full" id="hero-slider">
+            
+            <!-- Slide 1 -->
+            <div class="hero-slide active absolute inset-0 bg-cover bg-center flex items-center pt-10 md:pt-0" style="background-image: url('/assets/img/hero-1.jpg');">
+                <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-gray-900/95 via-gray-900/70 to-transparent md:via-gray-900/40"></div>
+                <div class="relative z-20 max-w-[1400px] w-full mx-auto px-4 md:px-8">
+                    <div class="slide-content-inner max-w-2xl">
+                        <span class="inline-block border border-primary text-primary px-4 py-1.5 rounded-full font-extrabold text-xs md:text-sm mb-4 md:mb-6 bg-primary/10">RELIABLE PROTECTION</span>
+                        <h1 class="text-4xl md:text-5xl lg:text-7xl text-white font-black leading-tight mb-4 md:mb-6">Security that<br>protects your data</h1>
+                        <p class="text-base md:text-lg lg:text-xl text-gray-300 mb-8 md:mb-10">Do not hesitate! Protect your personal data while surfing the web. We will ensure maximum privacy and stability on any devices.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-primary hover:bg-primary-hover text-white px-8 py-3.5 rounded-full font-extrabold text-base md:text-lg transition-all animate-pulse-custom text-center" onclick="window.location.href='https://t.me/free24_internet_bot'">Get Help</button>
+                            <button class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-3.5 rounded-full font-extrabold text-base md:text-lg transition-all text-center" onclick="window.location.href='https://t.me/free24_internet_bot'">Our Services</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide absolute inset-0 bg-cover bg-center flex items-center pt-10 md:pt-0" style="background-image: url('/assets/img/hero-2.jpg');">
+                <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-gray-900/95 via-gray-900/70 to-transparent md:via-gray-900/40"></div>
+                <div class="relative z-20 max-w-[1400px] w-full mx-auto px-4 md:px-8">
+                    <div class="slide-content-inner max-w-2xl">
+                        <span class="inline-block border border-primary text-primary px-4 py-1.5 rounded-full font-extrabold text-xs md:text-sm mb-4 md:mb-6 bg-primary/10">HIGH SPEED</span>
+                        <h1 class="text-4xl md:text-5xl lg:text-7xl text-white font-black leading-tight mb-4 md:mb-6">Internet without<br>speed drops</h1>
+                        <p class="text-base md:text-lg lg:text-xl text-gray-300 mb-8 md:mb-10">Enjoy 4K video streaming and fast file downloads without delays. Modern protocols for maximum comfort.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-primary hover:bg-primary-hover text-white px-8 py-3.5 rounded-full font-extrabold text-base md:text-lg transition-all animate-pulse-custom text-center" onclick="window.location.href='https://t.me/free24_internet_bot'">Connect</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide absolute inset-0 bg-cover bg-center flex items-center pt-10 md:pt-0" style="background-image: url('/assets/img/hero-3.jpg');">
+                <div class="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-gray-900/95 via-gray-900/70 to-transparent md:via-gray-900/40"></div>
+                <div class="relative z-20 max-w-[1400px] w-full mx-auto px-4 md:px-8">
+                    <div class="slide-content-inner max-w-2xl">
+                        <span class="inline-block border border-primary text-primary px-4 py-1.5 rounded-full font-extrabold text-xs md:text-sm mb-4 md:mb-6 bg-primary/10">COMPLETE ANONYMITY</span>
+                        <h1 class="text-4xl md:text-5xl lg:text-7xl text-white font-black leading-tight mb-4 md:mb-6">Data encryption<br>anywhere</h1>
+                        <p class="text-base md:text-lg lg:text-xl text-gray-300 mb-8 md:mb-10">Work safely even in public Wi-Fi networks. Bank-grade traffic encryption will protect you from intruders.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-primary hover:bg-primary-hover text-white px-8 py-3.5 rounded-full font-extrabold text-base md:text-lg transition-all animate-pulse-custom text-center" onclick="window.location.href='https://t.me/free24_internet_bot'">Protect Yourself</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Bottom Features Bar -->
+        <div class="absolute bottom-0 left-0 w-full bg-gray-900/90 backdrop-blur-md border-t border-white/10 z-30 py-4 md:py-6">
+            <div class="max-w-[1400px] mx-auto px-4 md:px-8 flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-4 lg:gap-0">
+                <div class="hidden lg:flex gap-8 xl:gap-12">
+                    <div class="flex items-center gap-4 text-white">
+                        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-xl text-primary">🛡️</div>
+                        <div class="flex flex-col">
+                            <strong class="text-sm font-extrabold tracking-wide">NETWORK SECURITY</strong>
+                            <span class="text-xs text-gray-400">No interception risks</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 text-white">
+                        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-xl text-primary">🚀</div>
+                        <div class="flex flex-col">
+                            <strong class="text-sm font-extrabold tracking-wide">HIGH SPEED</strong>
+                            <span class="text-xs text-gray-400">Watch 4K videos</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 text-white">
+                        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-xl text-primary">⚖️</div>
+                        <div class="flex flex-col">
+                            <strong class="text-sm font-extrabold tracking-wide">FAIR PRICES</strong>
+                            <span class="text-xs text-gray-400">No hidden fees</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between w-full lg:w-auto gap-8">
+                    <div class="flex gap-2 hero-dots">
+                        <span class="dot active w-[30px] h-2.5 rounded-md bg-primary cursor-pointer transition-all" onclick="goToHeroSlide(0)"></span>
+                        <span class="dot w-2.5 h-2.5 rounded-full bg-white/30 cursor-pointer transition-all" onclick="goToHeroSlide(1)"></span>
+                        <span class="dot w-2.5 h-2.5 rounded-full bg-white/30 cursor-pointer transition-all" onclick="goToHeroSlide(2)"></span>
+                    </div>
+                    <div class="flex gap-2 hero-arrows">
+                        <button onclick="prevHeroSlide()" class="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-dark transition-all">&#10094;</button>
+                        <button onclick="nextHeroSlide()" class="w-10 h-10 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-dark transition-all">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="py-16 md:py-24 bg-white" id="about">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-6">About Our Company</h2>
+                <p class="text-base md:text-lg text-slate-600 mb-6">We are a team of professionals in network security. Our main goal is to make safe and free internet accessible to every user.</p>
+                <p class="text-base md:text-lg text-slate-600 mb-8">We provide modern tools for traffic encryption, personal data protection in public networks, and ensuring complete anonymity. Our infrastructure is built on powerful servers with up to 1 Gbps bandwidth.</p>
+                <div class="flex gap-8 md:gap-12">
+                    <div class="flex flex-col">
+                        <span class="text-4xl font-black text-primary leading-none mb-1">50+</span>
+                        <span class="text-sm font-bold text-slate-600 uppercase tracking-wide">Servers</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-4xl font-black text-primary leading-none mb-1">10к+</span>
+                        <span class="text-sm font-bold text-slate-600 uppercase tracking-wide">Clients</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-4xl font-black text-primary leading-none mb-1">99.9%</span>
+                        <span class="text-sm font-bold text-slate-600 uppercase tracking-wide">Uptime</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-3xl shadow-2xl overflow-hidden group">
+                <img src="/assets/img/about.jpg" alt="About Us" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 md:py-24 bg-light" id="features">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-8">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-4">Why choose us?</h2>
+                <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">We offer modern solutions to protect your internet connection and personal data on all devices.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:-translate-y-2 hover:shadow-xl hover:border-primary transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">⚡</div>
+                    <h3 class="text-xl font-extrabold text-dark mb-3">Ultra-fast servers</h3>
+                    <p class="text-slate-600">Никаких ограничений по скорости. Смотрите фильмы в 4K, играйте в онлайн-игры и скачивайте файлы мгновенно без зависаний.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:-translate-y-2 hover:shadow-xl hover:border-primary transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">🔒</div>
+                    <h3 class="text-xl font-extrabold text-dark mb-3">Bank-grade encryption</h3>
+                    <p class="text-slate-600">We use advanced protection algorithms so your traffic and personal data cannot be intercepted.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:-translate-y-2 hover:shadow-xl hover:border-primary transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">📱</div>
+                    <h3 class="text-xl font-extrabold text-dark mb-3">One solution for all</h3>
+                    <p class="text-slate-600">Works on smartphones (iOS, Android), tablets, and computers (Windows, macOS). Setup takes less than a minute.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:-translate-y-2 hover:shadow-xl hover:border-primary transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">🕵️</div>
+                    <h3 class="text-xl font-extrabold text-dark mb-3">Complete anonymity</h3>
+                    <p class="text-slate-600">We do not keep logs of your activity. Your real location is securely hidden when visiting any sites.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:-translate-y-2 hover:shadow-xl hover:border-primary transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">🤖</div>
+                    <h3 class="text-xl font-extrabold text-dark mb-3">Smart Telegram bot</h3>
+                    <p class="text-slate-600">No complex registrations. Getting settings, payment, and access management happen right in the messenger.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 hover:-translate-y-2 hover:shadow-xl hover:border-primary transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">🎧</div>
+                    <h3 class="text-xl font-extrabold text-dark mb-3">24/7 Support</h3>
+                    <p class="text-slate-600">Have questions? Our technical support is always available through the ticket system in the bot and ready to help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 md:py-24 bg-white" id="pricing">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-4">Pricing & Services</h2>
+            <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-12 md:mb-16">Choose a convenient plan to protect your devices. The longer the period, the more profitable the cost!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Card 1 -->
+                <div class="bg-light rounded-3xl p-8 shadow-md hover:-translate-y-2 transition-transform border-2 border-transparent flex flex-col">
+                    <h3 class="text-2xl font-extrabold text-dark mb-2">Trial Access</h3>
+                    <div class="text-5xl font-black text-dark mb-2">0₽<span class="text-lg font-semibold text-slate-400"> / week</span></div>
+                    <p class="text-sm text-slate-500 mb-8">A great start for new clients. Evaluate all the benefits of our service.</p>
+                    <ul class="text-left space-y-4 mb-8 font-semibold flex-grow">
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Ultra-high speed</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Full data encryption</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Access to all locations</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> 1 device</li>
+                    </ul>
+                    <button class="bg-primary hover:bg-primary-hover text-white w-full py-3.5 rounded-full font-extrabold text-lg transition-all animate-pulse-custom" onclick="window.location.href='https://t.me/free24_internet_bot'">Get Access</button>
+                </div>
+
+                <!-- Card 2 (Popular) -->
+                <div class="bg-dark text-white rounded-3xl p-8 shadow-2xl transform md:scale-105 hover:-translate-y-2 transition-transform border-2 border-primary flex flex-col relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-1 rounded-full font-extrabold text-sm whitespace-nowrap">Most Profitable</div>
+                    <h3 class="text-2xl font-extrabold mb-2">1 Month</h3>
+                    <div class="text-5xl font-black mb-2">150₽<span class="text-lg font-semibold text-slate-400"> / month</span></div>
+                    <p class="text-sm text-slate-400 mb-8">Ideal for regular web browsing and using public Wi-Fi.</p>
+                    <ul class="text-left space-y-4 mb-8 font-semibold flex-grow">
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Ultra-high speed</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Full data encryption</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Access to all locations</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Up to 5 devices</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Priority support</li>
+                    </ul>
+                    <button class="bg-white hover:bg-gray-100 text-dark w-full py-3.5 rounded-full font-extrabold text-lg transition-all" onclick="window.location.href='https://t.me/free24_internet_bot'">Buy Plan</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-light rounded-3xl p-8 shadow-md hover:-translate-y-2 transition-transform border-2 border-transparent flex flex-col">
+                    <h3 class="text-2xl font-extrabold text-dark mb-2">Gift to a Friend</h3>
+                    <div class="text-5xl font-black text-dark mb-2">?₽<span class="text-lg font-semibold text-slate-400"> / indiv.</span></div>
+                    <p class="text-sm text-slate-500 mb-8">Purchase a gift certificate for safe internet for your loved ones.</p>
+                    <ul class="text-left space-y-4 mb-8 font-semibold flex-grow">
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Beautiful design</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Instant activation</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Same premium speeds</li>
+                        <li class="flex items-center gap-3"><span class="text-primary font-bold text-xl">✓</span> Flexible term choice</li>
+                    </ul>
+                    <button class="bg-primary hover:bg-primary-hover text-white w-full py-3.5 rounded-full font-extrabold text-lg transition-all animate-pulse-custom" onclick="window.location.href='https://t.me/free24_internet_bot'">Gift</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="py-16 md:py-24 bg-slate-200">
+        <div class="max-w-[700px] mx-auto px-4 md:px-8">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl min-h-[400px] flex flex-col justify-center relative">
+                <div class="quiz-header text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-dark mb-2">Take a short quiz</h2>
+                    <p class="text-slate-600 mb-6">and get a personalized setup offer</p>
+                    <div class="w-full h-2 bg-slate-200 rounded-full mb-4 overflow-hidden">
+                        <div class="h-full bg-primary w-[33.33%] transition-all duration-500 ease-out" id="quiz-progress"></div>
+                    </div>
+                    <div class="text-sm font-bold text-slate-400" id="quiz-step-text">Question 1 of 3</div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="quiz-step active" id="step-1">
+                    <p class="text-xl font-extrabold text-dark mb-6 text-center">For what purposes do you need safe internet?</p>
+                    <div class="flex flex-col gap-4">
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="nextQuiz(1)">To watch 4K videos and movies</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="nextQuiz(1)">For safe work and communication</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="nextQuiz(1)">To protect data in public networks</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="nextQuiz(1)">For all of the above</button>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="quiz-step" id="step-2">
+                    <p class="text-xl font-extrabold text-dark mb-6 text-center">From which device do you most often go online?</p>
+                    <div class="flex flex-col gap-4">
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="nextQuiz(2)">Smartphone (iOS / Android)</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="nextQuiz(2)">Computer (Windows / Mac)</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="nextQuiz(2)">Tablet</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="nextQuiz(2)">I use everything a little</button>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="quiz-step" id="step-3">
+                    <p class="text-xl font-extrabold text-dark mb-6 text-center">How often do you use public Wi-Fi (in cafes, subways)?</p>
+                    <div class="flex flex-col gap-4">
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="finishQuiz()">Every day</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="finishQuiz()">A couple of times a week</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="finishQuiz()">Very rarely</button>
+                        <button class="w-full text-left bg-slate-50 border-2 border-slate-300 p-4 rounded-xl font-bold text-slate-700 hover:bg-slate-100 hover:border-primary hover:text-primary hover:translate-x-1 transition-all" onclick="finishQuiz()">I never use it</button>
+                    </div>
+                </div>
+
+                <!-- Loading -->
+                <div class="hidden flex-col items-center gap-6 py-8" id="quiz-loading">
+                    <div class="spinner"></div>
+                    <p class="text-lg font-bold text-slate-600">Analyzing your answers...</p>
+                </div>
+
+                <!-- Result -->
+                <div class="hidden text-center animate-fade-in" id="quiz-result">
+                    <h3 class="text-3xl font-extrabold text-primary mb-4">Analysis completed! 🎉</h3>
+                    <p class="text-lg text-slate-600 mb-8">We have selected the optimal configuration for you with maximum speed and reliable encryption for your devices.</p>
+                    <button class="bg-primary hover:bg-primary-hover text-white w-full py-4 rounded-full font-extrabold text-xl transition-all animate-pulse-custom" onclick="window.location.href='https://t.me/free24_internet_bot'">Claim Personal Access</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-white" id="faq">
+        <div class="max-w-[800px] mx-auto px-4 md:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-4">FAQ</h2>
+                <p class="text-base md:text-lg text-slate-600">We have collected answers to the most popular questions about our service for you.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <div class="faq-item bg-light border border-slate-200 rounded-2xl overflow-hidden cursor-pointer transition-colors hover:border-primary/30">
+                    <div class="faq-question p-6 md:p-8 flex justify-between items-center font-extrabold text-lg md:text-xl text-dark">How do I get the connection settings?</div>
+                    <div class="faq-answer px-6 md:px-8 text-slate-600">You will receive all settings, keys, and links automatically in our Telegram bot immediately after payment. Detailed step-by-step instructions for any device are also available there.</div>
+                </div>
+                <div class="faq-item bg-light border border-slate-200 rounded-2xl overflow-hidden cursor-pointer transition-colors hover:border-primary/30">
+                    <div class="faq-question p-6 md:p-8 flex justify-between items-center font-extrabold text-lg md:text-xl text-dark">On how many devices can I use one account?</div>
+                    <div class="faq-answer px-6 md:px-8 text-slate-600">Количество устройств зависит от выбранного тарифа. На базовом тарифе это 1 device, на оптимальном — до 5 устройств одновременно без потери скорости.</div>
+                </div>
+                <div class="faq-item bg-light border border-slate-200 rounded-2xl overflow-hidden cursor-pointer transition-colors hover:border-primary/30">
+                    <div class="faq-question p-6 md:p-8 flex justify-between items-center font-extrabold text-lg md:text-xl text-dark">Do you save my browsing history?</div>
+                    <div class="faq-answer px-6 md:px-8 text-slate-600">No. We adhere to a strict no-logs policy. We do not collect, store, or transmit your request history to third parties.</div>
+                </div>
+                <div class="faq-item bg-light border border-slate-200 rounded-2xl overflow-hidden cursor-pointer transition-colors hover:border-primary/30">
+                    <div class="faq-question p-6 md:p-8 flex justify-between items-center font-extrabold text-lg md:text-xl text-dark">Is your service suitable for watching 4K videos?</div>
+                    <div class="faq-answer px-6 md:px-8 text-slate-600">Yes, absolutely. Our servers are connected to channels up to 1 Gbps, which allows you to watch high-quality videos, download heavy files, and play online games with low ping without delays.</div>
+                </div>
+                <div class="faq-item bg-light border border-slate-200 rounded-2xl overflow-hidden cursor-pointer transition-colors hover:border-primary/30">
+                    <div class="faq-question p-6 md:p-8 flex justify-between items-center font-extrabold text-lg md:text-xl text-dark">What should I do if I have problems with the setup?</div>
+                    <div class="faq-answer px-6 md:px-8 text-slate-600">Responsive technical support is available in our Telegram bot. Simply create a ticket via the 'Help' menu, and our specialists will quickly solve any problem.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 md:py-24 bg-light overflow-hidden" id="reviews">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-8 relative group">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-12 text-center">What our clients say</h2>
+            
+            <button onclick="document.getElementById('reviews-carousel').scrollBy({left: -350, behavior: 'smooth'})" class="absolute left-4 lg:-left-6 top-1/2 mt-6 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-100 text-dark flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-primary hover:text-white hover:scale-110 focus:outline-none hidden md:flex">&#10094;</button>
+            <button onclick="document.getElementById('reviews-carousel').scrollBy({left: 350, behavior: 'smooth'})" class="absolute right-4 lg:-right-6 top-1/2 mt-6 z-10 w-12 h-12 rounded-full bg-white shadow-lg border border-slate-100 text-dark flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-primary hover:text-white hover:scale-110 focus:outline-none hidden md:flex">&#10095;</button>
+
+            <div id="reviews-carousel" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-8 -mx-4 px-4 md:mx-0 md:px-0 pt-4">
+                
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:-translate-y-1 transition-transform relative shrink-0 snap-center w-[85%] sm:w-[350px] md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]">
+                    <div class="absolute top-6 right-6 text-6xl text-primary/10 font-serif leading-none">"</div>
+                    <div class="text-amber-500 text-xl mb-4">★★★★★</div>
+                    <p class="text-slate-600 mb-8 relative z-10">Tried a bunch of different services, but only found stable speed here. 4K video loads instantly, nothing freezes even in the evening. Very satisfied!</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 text-primary font-bold text-xl flex items-center justify-center">А</div>
+                        <div>
+                            <h4 class="font-bold text-dark leading-tight">Alexey S.</h4>
+                            <span class="text-sm text-slate-400">iOS User</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:-translate-y-1 transition-transform relative shrink-0 snap-center w-[85%] sm:w-[350px] md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]">
+                    <div class="absolute top-6 right-6 text-6xl text-primary/10 font-serif leading-none">"</div>
+                    <div class="text-amber-500 text-xl mb-4">★★★★★</div>
+                    <p class="text-slate-600 mb-8 relative z-10">Connected in 2 minutes using the bot's instructions. Everything is extremely simple and clear even for a beginner. The internet works stably, no complaints.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 text-primary font-bold text-xl flex items-center justify-center">Е</div>
+                        <div>
+                            <h4 class="font-bold text-dark leading-tight">Elena M.</h4>
+                            <span class="text-sm text-slate-400">Android User</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:-translate-y-1 transition-transform relative shrink-0 snap-center w-[85%] sm:w-[350px] md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]">
+                    <div class="absolute top-6 right-6 text-6xl text-primary/10 font-serif leading-none">"</div>
+                    <div class="text-amber-500 text-xl mb-4">★★★★★</div>
+                    <p class="text-slate-600 mb-8 relative z-10">I often work in cafes with open Wi-Fi, so data security is my top priority. With this service, I am completely calm about my traffic.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 text-primary font-bold text-xl flex items-center justify-center">Д</div>
+                        <div>
+                            <h4 class="font-bold text-dark leading-tight">Dmitry K.</h4>
+                            <span class="text-sm text-slate-400">macOS User</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:-translate-y-1 transition-transform relative shrink-0 snap-center w-[85%] sm:w-[350px] md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]">
+                    <div class="absolute top-6 right-6 text-6xl text-primary/10 font-serif leading-none">"</div>
+                    <div class="text-amber-500 text-xl mb-4">★★★★★</div>
+                    <p class="text-slate-600 mb-8 relative z-10">Very convenient bot! Paid, pressed a few buttons, and everything worked. No third-party sites or complex registrations. The price is also pleasing.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 font-bold text-xl flex items-center justify-center">М</div>
+                        <div>
+                            <h4 class="font-bold text-dark leading-tight">Maxim V.</h4>
+                            <span class="text-sm text-slate-400">Windows User</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:-translate-y-1 transition-transform relative shrink-0 snap-center w-[85%] sm:w-[350px] md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]">
+                    <div class="absolute top-6 right-6 text-6xl text-primary/10 font-serif leading-none">"</div>
+                    <div class="text-amber-500 text-xl mb-4">★★★★☆</div>
+                    <p class="text-slate-600 mb-8 relative z-10">I've been using it for the second month now. The speed really doesn't drop, it's enough for online games with low ping. There was a slight hitch with the setup, but support quickly helped.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-yellow-100 text-yellow-600 font-bold text-xl flex items-center justify-center">И</div>
+                        <div>
+                            <h4 class="font-bold text-dark leading-tight">Ilya T.</h4>
+                            <span class="text-sm text-slate-400">Android User</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:-translate-y-1 transition-transform relative shrink-0 snap-center w-[85%] sm:w-[350px] md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]">
+                    <div class="absolute top-6 right-6 text-6xl text-primary/10 font-serif leading-none">"</div>
+                    <div class="text-amber-500 text-xl mb-4">★★★★★</div>
+                    <p class="text-slate-600 mb-8 relative z-10">Connected the whole family on different devices. Definitely recommend! No disconnections, works stably for days. Thanks to the developers.</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-600 font-bold text-xl flex items-center justify-center">О</div>
+                        <div>
+                            <h4 class="font-bold text-dark leading-tight">Olga R.</h4>
+                            <span class="text-sm text-slate-400">iOS User</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#111418] text-gray-300 pt-16 pb-8">
+        <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <a href="#" class="text-white text-2xl font-black flex items-center gap-2 mb-4">
+                        <span class="text-primary">FREE</span>INTERNET
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-xs leading-relaxed">Professional help on the internet. Protecting your data and interests in public networks using encryption.</p>
+                    <div class="flex gap-4">
+                        <a href="https://t.me/free24_internet_bot" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/15 hover:-translate-y-1 transition-all">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.21-1.12-.33-1.08-.7.02-.19.27-.39.75-.59 2.95-1.28 4.91-2.13 5.89-2.53 2.79-1.15 3.37-1.35 3.76-1.36.09 0 .28.02.39.11.09.07.12.18.13.26 0 .04.01.12.01.19z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">Menu</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="/en/#about" class="text-gray-400 hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="/en/#pricing" class="text-gray-400 hover:text-primary transition-colors">Pricing & Services</a></li>
+                        <li><a href="/en/#reviews" class="text-gray-400 hover:text-primary transition-colors">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">Services</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/en/#features" class="text-gray-400 hover:text-primary transition-colors">Network Protection</a></li>
+                        <li><a href="/en/#features" class="text-gray-400 hover:text-primary transition-colors">Anonymous Connection</a></li>
+                        <li><a href="/en/#features" class="text-gray-400 hover:text-primary transition-colors">Ultra-fast servers</a></li>
+                        <li><a href="/en/#features" class="text-gray-400 hover:text-primary transition-colors">Bank-grade encryption</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">Support</h4>
+                    <ul class="space-y-4">
+                        <li><a href="https://t.me/free24_internet_bot" class="text-gray-400 hover:text-primary transition-colors">Bot Assistant</a></li>
+                        <li><a href="https://t.me/free24_internet_bot" class="text-gray-400 hover:text-primary transition-colors">Contact Support</a></li>
+                        <li><a href="/en/#faq" class="text-gray-400 hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="#quiz-content" class="text-gray-400 hover:text-primary transition-colors">Help with Choice</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; 2026 Free Internet. Все права защищены.</p>
+                <div class="flex gap-6 flex-wrap justify-center">
+                    <a href="/en/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="/en/terms" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay fixed inset-0 bg-gray-900/80 backdrop-blur-sm flex items-center justify-center z-[2000] p-4" id="modal">
+        <div class="modal-content bg-white p-8 md:p-12 rounded-3xl max-w-md w-full text-center relative shadow-2xl">
+            <button class="absolute top-4 right-4 text-3xl text-slate-400 hover:text-dark transition-colors" onclick="closeModal()">&times;</button>
+            <h2 class="text-3xl font-black text-primary mb-4">🎉 Great Choice!</h2>
+            <p class="text-lg text-slate-600 mb-8">Go to our Telegram bot for a quick automatic connection. It takes only 1 minute!</p>
+            <button class="bg-primary hover:bg-primary-hover text-white w-full py-4 rounded-full font-extrabold text-lg transition-all animate-pulse-custom" onclick="window.location.href='https://t.me/free24_internet_bot'">Open Telegram Bot</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMenuBtn.addEventListener('click', closeMobileMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        // Hero Slider Logic
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.dot');
+        let currentHeroSlide = 0;
+        let slideInterval;
+
+        function updateHeroSlider() {
+            if (!heroSlides || heroSlides.length === 0) return;
+            heroSlides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                heroDots[index].classList.remove('active', 'w-[30px]', 'bg-primary');
+                heroDots[index].classList.add('w-2.5', 'bg-white/30');
+            });
+            
+            heroSlides[currentHeroSlide].classList.add('active');
+            heroDots[currentHeroSlide].classList.remove('w-2.5', 'bg-white/30');
+            heroDots[currentHeroSlide].classList.add('active', 'w-[30px]', 'bg-primary');
+        }
+
+        function nextHeroSlide() {
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            updateHeroSlider();
+            resetInterval();
+        }
+
+        function prevHeroSlide() {
+            currentHeroSlide = (currentHeroSlide - 1 + heroSlides.length) % heroSlides.length;
+            updateHeroSlider();
+            resetInterval();
+        }
+
+        function goToHeroSlide(index) {
+            currentHeroSlide = index;
+            updateHeroSlider();
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextHeroSlide, 6000);
+        }
+
+        // Start auto slider
+        if (heroSlides && heroSlides.length > 0) {
+            slideInterval = setInterval(nextHeroSlide, 6000);
+        }
+
+        // Quiz Logic
+        function nextQuiz(currentStepIndex) {
+            document.getElementById(`step-${currentStepIndex}`).classList.remove('active');
+            const nextStepIndex = currentStepIndex + 1;
+            document.getElementById(`step-${nextStepIndex}`).classList.add('active');
+            
+            // Update Progress
+            const progress = (nextStepIndex / 3) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+            document.getElementById('quiz-step-text').innerText = `Вопрос ${nextStepIndex} из 3`;
+        }
+
+        function finishQuiz() {
+            document.getElementById('step-3').classList.remove('active');
+            document.querySelector('.quiz-header').style.display = 'none';
+            document.getElementById('quiz-loading').style.display = 'flex';
+            
+            setTimeout(() => {
+                document.getElementById('quiz-loading').style.display = 'none';
+                document.getElementById('quiz-result').style.display = 'block';
+            }, 2000);
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('modal');
+        function openModal() {
+            modal.classList.add('active');
+        }
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        // FAQ Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Exit intent pop-up
+        let modalShown = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY < 0 && !modalShown && typeof modal !== 'undefined' && modal) {
+                openModal();
+                modalShown = true;
+            }
+        });
+    </script>
+</body>
+</html>

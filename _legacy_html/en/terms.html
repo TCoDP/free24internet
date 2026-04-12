@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Free Internet</title>
+
+    <meta name="description" content="Free Internet — a professional service for data protection online. Bank-grade encryption, anonymity, and ultra-fast servers for all devices.">
+    <meta name="keywords" content="free internet, stable access, data protection, online anonymity, secure internet, traffic encryption, privacy">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://free24internet.vip/assets/img/hero-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Professional data protection and traffic encryption. Ultra-fast servers 24/7.">
+
+    <meta property="og:title" content="Terms of Service — Free Internet">
+    <meta property="og:description" content="Secure access to the network with no speed limits. Data encryption and complete anonymity on any devices.">
+    <meta property="og:url" content="https://free24internet.vip/en/">
+    <meta name="twitter:title" content="Terms of Service — Free Internet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#b91c1c',
+                        'primary-hover': '#991b1b',
+                        dark: '#111827',
+                        light: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.open {
+            transform: translateY(0);
+        }
+    </style>
+    <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.webvisor.org/metrika/tag_ww.js?id=108456982', 'ym');      ym(108456982, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script>  <!-- /Yandex.Metrika counter -->
+</head>
+<body class="bg-light text-slate-700 leading-relaxed flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-[1000] bg-gray-900/95 backdrop-blur-md shadow-lg">
+        <nav class="max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-white text-xl md:text-2xl font-black flex items-center gap-2">
+                <span class="text-primary">FREE</span>INTERNET
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="/en/#about" class="text-gray-300 hover:text-white font-semibold text-sm transition-colors">About Us</a>
+                <a href="/en/#features" class="text-gray-300 hover:text-white font-semibold text-sm transition-colors">Features</a>
+                <a href="/en/#pricing" class="text-gray-300 hover:text-white font-semibold text-sm transition-colors">Pricing</a>
+                <a href="/en/#faq" class="text-gray-300 hover:text-white font-semibold text-sm transition-colors">FAQ</a>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-6">
+                <!-- Language Switcher -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-gray-300 hover:text-white font-semibold text-sm transition-colors">
+                        RU
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute right-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100 z-50">
+                        <div class="p-2 flex flex-col gap-1">
+                            <a href="/" class="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-50 text-primary font-bold text-sm">
+                                Русский
+                                <span class="text-base">🇷🇺</span>
+                            </a>
+                            <a href="/en/" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-primary font-semibold text-sm transition-colors">
+                                English
+                                <span class="text-base">🇬🇧</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="openModal()" class="bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all transform hover:-translate-y-0.5 animate-pulse-custom">Connect</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-[1001] bg-white flex flex-col pb-8">
+        <!-- Menu Header -->
+        <div class="flex justify-between items-center p-4 border-b border-slate-200 mt-2 mb-2">
+            <a href="#" class="text-dark text-xl font-black flex items-center gap-2 pl-2">
+                <span class="text-primary">FREE</span>INTERNET
+            </a>
+            <button id="close-menu-btn" class="p-1.5 border-2 border-amber-500 rounded-lg text-slate-800 mr-2 flex items-center justify-center bg-white transition-all hover:bg-slate-50 focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        
+        <!-- Menu Links -->
+        <div class="flex flex-col px-6 mt-2">
+            <a href="/en/#about" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">About Us</a>
+            <a href="/en/#features" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">Features</a>
+            <a href="/en/#pricing" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">Pricing & Services</a>
+            <a href="/en/#reviews" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">Reviews</a>
+            <a href="/en/#faq" class="mobile-link text-lg font-bold text-dark py-5 border-b border-slate-200 hover:text-primary transition-colors">FAQ</a>
+        </div>
+        
+        <!-- Menu Footer -->
+        <div class="px-6 mt-auto flex flex-col pt-8">
+            <div class="flex items-center justify-center gap-4 mb-8">
+                <a href="/" class="px-4 py-2 text-slate-600 font-semibold hover:bg-slate-50 rounded-lg transition-colors flex items-center gap-2"><span class="text-xl">🇷🇺</span> RU</a>
+                <a href="/en/" class="px-4 py-2 bg-slate-100 text-primary font-bold rounded-lg flex items-center gap-2"><span class="text-xl">🇬🇧</span> EN</a>
+            </div>
+            <div class="flex items-center gap-3 mb-6">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.21-1.12-.33-1.08-.7.02-.19.27-.39.75-.59 2.95-1.28 4.91-2.13 5.89-2.53 2.79-1.15 3.37-1.35 3.76-1.36.09 0 .28.02.39.11.09.07.12.18.13.26 0 .04.01.12.01.19z"/></svg>
+                <a href="https://t.me/free24_internet_bot" class="text-xl font-extrabold text-dark hover:text-primary transition-colors">Support Service</a>
+            </div>
+            <button onclick="window.location.href='https://t.me/free24_internet_bot'; closeMobileMenu()" class="w-full bg-[#991b1b] hover:bg-[#7f1d1d] text-white py-4 rounded-xl font-bold text-lg text-center transition-all shadow-md">Connect</button>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <main class="flex-grow pt-32 pb-16 px-4 md:px-8 max-w-[1000px] mx-auto w-full">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-dark mb-8 text-center">Terms of Service</h1>
+        
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200">
+            <div class="prose max-w-none text-slate-600 space-y-6">
+                <h3 class="text-xl font-bold text-dark mt-4 mb-4">1. General Provisions</h3>
+                <p>1.1. Настоящее Terms of Service (далее — «Соглашение») регулирует порядок использования онлайн-сервиса (далее — «Сервис»), предоставляемого Администрацией.</p>
+                <p>1.2. By using the Service, including launching the bot, registering, paying for services, or gaining access to materials, the User confirms that they have fully read the terms of this Agreement and accept them in full.</p>
+                <p>1.3. In case of disagreement with the terms of the Agreement, the User must stop using the Service.</p>
+                
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">2. Nature of Services and Digital Goods</h3>
+                <p>2.1. The Service provides digital goods and services of an intangible nature, including but not limited to: informational materials, training programs, consultations, digital products, and services.</p>
+                <p>2.2. Materials provided through the Service may include:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>information from open sources;</li>
+                    <li>copyright materials of the Administration and/or third parties;</li>
+                    <li>analytical reviews, collections, recommendations, structured data.</li>
+                </ul>
+                <p>2.3. The User realizes and agrees that the value of digital goods and services of the Service lies in systematization, analysis, presentation format, accompaniment, support, and updates, and not in the exclusivity of individual fragments of information.</p>
+                <p>2.4. The Service does not claim or guarantee the uniqueness, exclusivity, or unavailability of individual elements of materials outside the Service.</p>
+                
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">3. Disclaimer of Warranties and Liability</h3>
+                <p>3.1. The Service is provided on an 'AS IS' basis.</p>
+                <p>3.2. The Administration does not guarantee:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>compliance of the Service with the User's expectations;</li>
+                    <li>achievement of any financial, commercial, professional, or other results;</li>
+                    <li>uninterrupted and error-free operation of the Service.</li>
+                </ul>
+                <p>3.3. The Administration is not responsible for:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>any direct or indirect damages, including lost profits;</li>
+                    <li>consequences of the User's application of the received materials;</li>
+                    <li>actions or inaction of third parties;</li>
+                    <li>temporary technical failures and access restrictions.</li>
+                </ul>
+                <p>3.4. All decisions regarding the application of materials, recommendations, and services are made by the User independently and at their own risk.</p>
+                
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">4. Legality of Use</h3>
+                <p>4.1. The Service is not intended to encourage, organize, or facilitate illegal activities.</p>
+                <p>4.2. The User undertakes to use the Service exclusively within the framework of applicable law and third-party rules.</p>
+                <p>4.3. Responsibility for the legality of the use of materials and services of the Service lies entirely with the User.</p>
+
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">5. Intellectual Property</h3>
+                <p>5.1. All materials posted on the Service are protected by intellectual property laws.</p>
+                <p>5.2. The User is prohibited from copying, distributing, reselling, transferring to third parties, or otherwise using the materials of the Service without the permission of the copyright holder.</p>
+                <p>5.3. Violation of intellectual property rights may result in restriction of access to the Service without compensation.</p>
+                
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">6. Access Restriction</h3>
+                <p>6.1. The Administration has the right to suspend or restrict the User's access to the Service in case of:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>violation of the terms of this Agreement;</li>
+                    <li>detection of abuse;</li>
+                    <li>requirements of legislation or payment providers.</li>
+                </ul>
+                <p>6.2. Access restriction does not relieve the User of obligations that arose earlier.</p>
+                <p>6.3. The Administration reserves the right to refuse service to Users whose actions may create increased risks for the Service, payment providers, or third parties.</p>
+
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">7. Payments and Refunds</h3>
+                <p>7.1. Payment for services and digital goods is made on the terms specified in the Service before payment.</p>
+                <p>7.2. Due to the intangible nature of digital goods and services, refunds are not issued after access is granted, except in the cases specified below.</p>
+                <p>7.3. A refund is possible only if:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>the service was not provided due to the technical fault of the Service;</li>
+                    <li>access to the digital good was not actually provided.</li>
+                </ul>
+                <p>7.4. To consider a refund, the User must contact support within 24 hours of payment.</p>
+                <p>7.5. The decision on a refund is made by the Administration individually.</p>
+                <p>7.6. The User confirms that they undertake not to initiate a chargeback through payment systems without first contacting the Service's support.</p>
+                
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">8. Privacy</h3>
+                <p>8.1. The Administration may collect minimum necessary technical data to ensure the operation of the Service.</p>
+                <p>8.2. The Administration takes reasonable measures to protect data but does not guarantee the absolute security of the transmitted information.</p>
+                
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">9. Change of Terms</h3>
+                <p>9.1. The Administration has the right to make changes to this Agreement.</p>
+                <p>9.2. The current version of the Agreement is published in the Service.</p>
+                <p>9.3. Continued use of the Service means the User agrees to the updated terms.</p>
+                
+                <h3 class="text-xl font-bold text-dark mt-8 mb-4">10. Contact Information</h3>
+                <p>10.1. For all questions, the User can contact support via the form within the bot itself.</p>
+                
+                <div class="mt-8 p-4 bg-light rounded-xl border border-slate-200">
+                    <p class="font-semibold text-dark">By using the Service (including launching the bot and/or entering the /start command), the User confirms that they have read this Agreement and accept its terms in full.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#111418] text-gray-300 pt-16 pb-8">
+        <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <a href="#" class="text-white text-2xl font-black flex items-center gap-2 mb-4">
+                        <span class="text-primary">FREE</span>INTERNET
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-xs leading-relaxed">Professional help on the internet. Protecting your data and interests in public networks using encryption.</p>
+                    <div class="flex gap-4">
+                        <a href="https://t.me/free24_internet_bot" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/15 hover:-translate-y-1 transition-all">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.21-1.12-.33-1.08-.7.02-.19.27-.39.75-.59 2.95-1.28 4.91-2.13 5.89-2.53 2.79-1.15 3.37-1.35 3.76-1.36.09 0 .28.02.39.11.09.07.12.18.13.26 0 .04.01.12.01.19z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">Menu</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="/en/#about" class="text-gray-400 hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="/en/#pricing" class="text-gray-400 hover:text-primary transition-colors">Pricing & Services</a></li>
+                        <li><a href="/en/#reviews" class="text-gray-400 hover:text-primary transition-colors">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">Services</h4>
+                    <ul class="space-y-4">
+                        <li><a href="/en/#features" class="text-gray-400 hover:text-primary transition-colors">Network Protection</a></li>
+                        <li><a href="/en/#features" class="text-gray-400 hover:text-primary transition-colors">Anonymous Connection</a></li>
+                        <li><a href="/en/#features" class="text-gray-400 hover:text-primary transition-colors">Ultra-fast servers</a></li>
+                        <li><a href="/en/#features" class="text-gray-400 hover:text-primary transition-colors">Bank-grade encryption</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">Support</h4>
+                    <ul class="space-y-4">
+                        <li><a href="https://t.me/free24_internet_bot" class="text-gray-400 hover:text-primary transition-colors">Bot Assistant</a></li>
+                        <li><a href="https://t.me/free24_internet_bot" class="text-gray-400 hover:text-primary transition-colors">Contact Support</a></li>
+                        <li><a href="/en/#faq" class="text-gray-400 hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="#quiz-content" class="text-gray-400 hover:text-primary transition-colors">Help with Choice</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; 2026 Free Internet. Все права защищены.</p>
+                <div class="flex gap-6 flex-wrap justify-center">
+                    <a href="/en/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="/en/terms" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay fixed inset-0 bg-gray-900/80 backdrop-blur-sm flex items-center justify-center z-[2000] p-4" id="modal">
+        <div class="modal-content bg-white p-8 md:p-12 rounded-3xl max-w-md w-full text-center relative shadow-2xl">
+            <button class="absolute top-4 right-4 text-3xl text-slate-400 hover:text-dark transition-colors" onclick="closeModal()">&times;</button>
+            <h2 class="text-3xl font-black text-primary mb-4">🎉 Great Choice!</h2>
+            <p class="text-lg text-slate-600 mb-8">Go to our Telegram bot for a quick automatic connection. It takes only 1 minute!</p>
+            <button class="bg-primary hover:bg-primary-hover text-white w-full py-4 rounded-full font-extrabold text-lg transition-all animate-pulse-custom" onclick="window.location.href='https://t.me/free24_internet_bot'">Open Telegram Bot</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMenuBtn.addEventListener('click', closeMobileMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+
+        // Hero Slider Logic
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.dot');
+        let currentHeroSlide = 0;
+        let slideInterval;
+
+        function updateHeroSlider() {
+            if (!heroSlides || heroSlides.length === 0) return;
+            heroSlides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                heroDots[index].classList.remove('active', 'w-[30px]', 'bg-primary');
+                heroDots[index].classList.add('w-2.5', 'bg-white/30');
+            });
+            
+            heroSlides[currentHeroSlide].classList.add('active');
+            heroDots[currentHeroSlide].classList.remove('w-2.5', 'bg-white/30');
+            heroDots[currentHeroSlide].classList.add('active', 'w-[30px]', 'bg-primary');
+        }
+
+        function nextHeroSlide() {
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            updateHeroSlider();
+            resetInterval();
+        }
+
+        function prevHeroSlide() {
+            currentHeroSlide = (currentHeroSlide - 1 + heroSlides.length) % heroSlides.length;
+            updateHeroSlider();
+            resetInterval();
+        }
+
+        function goToHeroSlide(index) {
+            currentHeroSlide = index;
+            updateHeroSlider();
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextHeroSlide, 6000);
+        }
+
+        // Start auto slider
+        if (heroSlides && heroSlides.length > 0) {
+            slideInterval = setInterval(nextHeroSlide, 6000);
+        }
+
+        // Quiz Logic
+        function nextQuiz(currentStepIndex) {
+            document.getElementById(`step-${currentStepIndex}`).classList.remove('active');
+            const nextStepIndex = currentStepIndex + 1;
+            document.getElementById(`step-${nextStepIndex}`).classList.add('active');
+            
+            // Update Progress
+            const progress = (nextStepIndex / 3) * 100;
+            document.getElementById('quiz-progress').style.width = `${progress}%`;
+            document.getElementById('quiz-step-text').innerText = `Вопрос ${nextStepIndex} из 3`;
+        }
+
+        function finishQuiz() {
+            document.getElementById('step-3').classList.remove('active');
+            document.querySelector('.quiz-header').style.display = 'none';
+            document.getElementById('quiz-loading').style.display = 'flex';
+            
+            setTimeout(() => {
+                document.getElementById('quiz-loading').style.display = 'none';
+                document.getElementById('quiz-result').style.display = 'block';
+            }, 2000);
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('modal');
+        function openModal() {
+            modal.classList.add('active');
+        }
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        // FAQ Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(faq => faq.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Exit intent pop-up
+        let modalShown = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY < 0 && !modalShown && typeof modal !== 'undefined' && modal) {
+                openModal();
+                modalShown = true;
+            }
+        });
+    </script>
+</body>
+</html>
