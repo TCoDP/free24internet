@@ -351,12 +351,6 @@ export const ru: SiteMessages = {
     accountTelegram: "Telegram",
     accountId: "ID в системе",
     logout: "Выйти",
-    orLoginWithTelegram: "или через Telegram",
-    telegramLoginHint: "Войдите через официальный виджет — без пароля к сайту.",
-    telegramError: "Не удалось войти через Telegram. Попробуйте ещё раз.",
-    telegramNotConfigured: "Вход через Telegram временно недоступен.",
-    telegramLocalHttpsHint:
-      "На обычном http://localhost кнопка Telegram часто не появляется. Остановите dev-сервер и запустите npm run dev:https, затем откройте https://localhost:3000 и примите предупреждение о сертификате. В @BotFather в Domain бота добавьте localhost.",
     accountSettingsTitle: "Настройки профиля",
     accountTabLanguage: "Язык",
     accountSectionProfile: "Профиль",
@@ -365,10 +359,10 @@ export const ru: SiteMessages = {
     accountSectionSecurity: "Безопасность",
     accountSectionLanguage: "Язык интерфейса",
     accountDisplayEmail: "Адрес почты",
-    accountPasswordHintTelegram:
-      "Вы вошли через Telegram без пароля к сайту. Смена пароля здесь недоступна.",
     accountPasswordHintEmail:
       "Используйте надёжный пароль, который вы не повторяете на других сайтах.",
+    accountPasswordSetInitialBlurb:
+      "У аккаунта ещё нет пароля для входа на сайт. Задайте пароль — после этого сможете входить по email.",
     currentPasswordLabel: "Текущий пароль",
     newPasswordLabel: "Новый пароль",
     confirmPasswordLabel: "Повторите новый пароль",
@@ -381,17 +375,6 @@ export const ru: SiteMessages = {
     accountProfileNameBlurb: "Так вас видно в шапке сайта и в личном кабинете.",
     accountLanguageNavHint:
       "Переключение сохраняет язык и открывает тот же раздел — без полной перезагрузки страницы.",
-    linkTelegramTitle: "Привязка Telegram",
-    linkTelegramBlurb:
-      "Сгенерируйте ссылку и откройте её в Telegram — бот подтвердит привязку к этому профилю. Ссылка одноразовая и коротко живёт.",
-    linkTelegramLinked: "Telegram уже привязан к профилю.",
-    linkTelegramGenerate: "Создать ссылку",
-    linkTelegramOpenTelegram: "Открыть в Telegram",
-    linkTelegramCopy: "Копировать ссылку",
-    linkTelegramCopied: "Скопировано",
-    linkTelegramExpiresHint: "Действует 15 минут, одно использование.",
-    linkTelegramWebhookMissing:
-      "Задайте TELEGRAM_WEBHOOK_SECRET в .env и выполните node scripts/register-telegram-webhook.mjs — иначе бот не сможет завершить привязку.",
     accountTabTickets: "Поддержка",
     accountTabReferrals: "Рефералы",
     accountSectionReferrals: "Реферальная программа",
@@ -433,7 +416,7 @@ export const ru: SiteMessages = {
     profilePaySoon: "Скоро",
     profilePayClose: "Закрыть",
     profilePayTrialIntro:
-      "Пробный период подключается в Telegram-боте. Ссылка на бота есть в шапке сайта и в разделе привязки Telegram в профиле.",
+      "Пробный период можно подключить в нашем Telegram-боте — ссылка есть в шапке сайта.",
     profilePayPlanLabel: "Тариф",
     profilePayPriceLabel: "Цена",
     profilePayDiscountLabel: "Сумма скидки",
@@ -471,8 +454,6 @@ export const ru: SiteMessages = {
       wrong_password: "Неверный текущий пароль.",
       no_password: "Для этого аккаунта пароль не задан.",
       password_mismatch: "Новые пароли не совпадают.",
-      link_telegram_taken:
-        "Этот Telegram уже привязан к другому аккаунту. Войдите в тот профиль или используйте другой Telegram.",
       referral_invalid: "Такого реферального кода нет.",
       referral_self: "Нельзя использовать свой код.",
       referral_already: "Код пригласившего уже сохранён.",

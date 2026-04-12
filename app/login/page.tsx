@@ -16,10 +16,7 @@ export default async function LoginPage() {
     <SiteShell messages={messages}>
       <AuthCard messages={messages} title={messages.auth.loginTitle}>
         <Suspense fallback={<div className="h-48 animate-pulse rounded-xl bg-slate-100" />}>
-          <LoginForm
-            messages={messages}
-            telegramAuthEnabled={Boolean(process.env.TELEGRAM_BOT_TOKEN?.trim())}
-          />
+          <LoginForm messages={messages} />
         </Suspense>
       </AuthCard>
     </SiteShell>

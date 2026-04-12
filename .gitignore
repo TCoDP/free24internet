@@ -45,3 +45,10 @@ yarn-error.log*
 next-env.d.ts
 
 certificates
+
+# Telegram VPN-бот (секреты и виртуальное окружение)
+/vpn_bot/venv/
+/vpn_bot/config.py
+/vpn_bot/**/__pycache__/
+/vpn_bot/**/*.pyc
+/vpn_bot/*.db

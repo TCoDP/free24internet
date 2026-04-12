@@ -1,6 +1,5 @@
 export type SessionUser = {
   id: number;
-  /** Пустая строка, если вход только через Telegram без привязанного email. */
   email: string;
   name: string | null;
   tgUsername?: string | null;
@@ -9,7 +8,7 @@ export type SessionUser = {
 
 export type UserRow = {
   id: number;
-  /** null — Telegram ещё не привязан к профилю (вход по email). */
+  /** null — нет связанного Telegram (данные могут заполняться ботом в общей БД). */
   tg_id: number | null;
   email: string | null;
   password_hash: string | null;

@@ -7,15 +7,8 @@ import { useCallback, useState } from "react";
 import type { SiteMessages } from "@/lib/messages/types";
 import { accountSectionPath } from "@/lib/account/paths";
 import { pathPrefix } from "@/lib/locale";
-import { TelegramLogin } from "./TelegramLogin";
 
-export function LoginForm({
-  messages,
-  telegramAuthEnabled,
-}: {
-  messages: SiteMessages;
-  telegramAuthEnabled: boolean;
-}) {
+export function LoginForm({ messages }: { messages: SiteMessages }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const p = pathPrefix(messages.locale);
@@ -126,17 +119,6 @@ export function LoginForm({
         {loading ? "…" : auth.submitLogin}
       </button>
     </form>
-
-      <div className="relative py-2">
-        <div className="absolute inset-0 flex items-center" aria-hidden>
-          <div className="w-full border-t border-slate-200" />
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="bg-light px-3 font-bold text-slate-500">{auth.orLoginWithTelegram}</span>
-        </div>
-      </div>
-
-      <TelegramLogin messages={messages} enabled={telegramAuthEnabled} />
 
       <p className="text-center text-sm text-slate-600">
         {auth.needAccount}{" "}

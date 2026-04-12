@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     const newPass = normalizePassword(body.newPassword);
     const confirm = typeof body.confirmPassword === "string" ? body.confirmPassword : "";
 
-    if (!newPass || currentRaw.length < 1) {
+    if (!newPass) {
       return NextResponse.json({ error: "validation" }, { status: 400 });
     }
     if (confirm !== newPass) {
@@ -27,8 +27,17 @@ export async function POST(req: Request) {
     }
 
     const row = await findUserById(id);
-    if (!row?.password_hash) {
-      return NextResponse.json({ error: "no_password" }, { status: 400 });
+    if (!row) {
+      return NextResponse.json({ error: "not_found" }, { status: 404 });
+    }
+
+    if (!row.password_hash) {
+      await updateUserPasswordHash(id, hashPassword(newPass));
+      return NextResponse.json({ ok: true });
+    }
+
+    if (currentRaw.length < 1) {
+      return NextResponse.json({ error: "validation" }, { status: 400 });
     }
     if (!verifyPassword(currentRaw, row.password_hash)) {
       return NextResponse.json({ error: "wrong_password" }, { status: 400 });

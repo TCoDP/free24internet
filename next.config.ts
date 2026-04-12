@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     "::1",
     "[::1]",
   ],
-  /** Виджет Telegram сверяет домен с BotFather: www и apex — разные хосты. */
+  /** Единый канонический хост (www → apex). */
   async redirects() {
     return [
       {

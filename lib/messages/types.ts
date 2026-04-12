@@ -72,7 +72,7 @@ export interface SiteMessages {
     body: string;
     cta: string;
   };
-  /** Главная: выбор «в бот» или «в кабинет» перед переходом в Telegram */
+  /** Главная: выбор «в бот» или «в кабинет» */
   botChoice: {
     title: string;
     body: string;
@@ -179,12 +179,6 @@ export interface SiteMessages {
     accountTelegram: string;
     accountId: string;
     logout: string;
-    orLoginWithTelegram: string;
-    telegramLoginHint: string;
-    telegramError: string;
-    telegramNotConfigured: string;
-    /** Локальная разработка без HTTPS — виджет часто пустой. */
-    telegramLocalHttpsHint: string;
     accountSettingsTitle: string;
     /** Короткая подпись вкладки */
     accountTabLanguage: string;
@@ -194,8 +188,9 @@ export interface SiteMessages {
     accountSectionSecurity: string;
     accountSectionLanguage: string;
     accountDisplayEmail: string;
-    accountPasswordHintTelegram: string;
     accountPasswordHintEmail: string;
+    /** У аккаунта ещё нет пароля для входа на сайт — можно задать первый. */
+    accountPasswordSetInitialBlurb: string;
     currentPasswordLabel: string;
     newPasswordLabel: string;
     confirmPasswordLabel: string;
@@ -207,15 +202,6 @@ export interface SiteMessages {
     memberSince: string;
     accountProfileNameBlurb: string;
     accountLanguageNavHint: string;
-    linkTelegramTitle: string;
-    linkTelegramBlurb: string;
-    linkTelegramLinked: string;
-    linkTelegramGenerate: string;
-    linkTelegramOpenTelegram: string;
-    linkTelegramCopy: string;
-    linkTelegramCopied: string;
-    linkTelegramExpiresHint: string;
-    linkTelegramWebhookMissing: string;
     accountTabTickets: string;
     accountTabReferrals: string;
     accountSectionReferrals: string;
@@ -284,7 +270,6 @@ export interface SiteMessages {
       wrong_password: string;
       no_password: string;
       password_mismatch: string;
-      link_telegram_taken: string;
       referral_invalid: string;
       referral_self: string;
       referral_already: string;

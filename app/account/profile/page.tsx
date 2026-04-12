@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { AccountProfileBuyButton } from "@/components/account/AccountProfileBuyButton";
 import { AccountProfileInfoCards } from "@/components/account/AccountProfileInfoCards";
 import { AccountProfileNameForm } from "@/components/account/AccountProfileNameForm";
-import { TelegramAccountLink } from "@/components/account/TelegramAccountLink";
 import { getAccountContext } from "@/lib/account/get-account-context";
 import { userIsSitePayEligible } from "@/lib/account/site-pay-eligible";
 import { formatMemberSince } from "@/lib/account/format-member-since";
@@ -27,9 +26,6 @@ export default async function AccountProfilePage() {
 
   const emailDisplay = row.email?.trim() ?? "";
   const tgDisplay = row.tg_username?.trim() ? `@${row.tg_username!.trim()}` : null;
-  const tgLinked = row.tg_id != null && Number(row.tg_id) > 0;
-  const botConfigured = Boolean(process.env.TELEGRAM_BOT_TOKEN?.trim());
-  const webhookConfigured = Boolean(process.env.TELEGRAM_WEBHOOK_SECRET?.trim());
 
   return (
     <div className="space-y-10">
@@ -79,13 +75,6 @@ export default async function AccountProfilePage() {
           ) : null}
         </div>
       </section>
-      <TelegramAccountLink
-        messages={messages}
-        botConfigured={botConfigured}
-        webhookConfigured={webhookConfigured}
-        linked={tgLinked}
-        tgUsername={row.tg_username?.trim() || null}
-      />
       <AccountProfileNameForm messages={messages} initialName={row.name?.trim() ?? ""} />
     </div>
   );

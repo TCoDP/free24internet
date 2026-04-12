@@ -63,8 +63,58 @@ export function AccountPasswordEditor({
 
   if (!hasPassword) {
     return (
-      <div className="rounded-2xl border border-amber-200/80 bg-amber-50/50 p-6 sm:p-8">
-        <p className="text-slate-700">{auth.accountPasswordHintTelegram}</p>
+      <div className="rounded-2xl border border-slate-200/70 bg-white p-6 shadow-sm sm:p-8">
+        <h3 className="text-lg font-black text-dark">{auth.accountSectionSecurity}</h3>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">{auth.accountPasswordSetInitialBlurb}</p>
+        <form
+          className="mt-6 space-y-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+            void save();
+          }}
+        >
+          <div>
+            <label htmlFor="acc-init-new" className="mb-2 block text-sm font-bold text-slate-700">
+              {auth.newPasswordLabel}
+            </label>
+            <input
+              id="acc-init-new"
+              type="password"
+              autoComplete="new-password"
+              minLength={8}
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              className={accountInputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="acc-init-confirm" className="mb-2 block text-sm font-bold text-slate-700">
+              {auth.confirmPasswordLabel}
+            </label>
+            <input
+              id="acc-init-confirm"
+              type="password"
+              autoComplete="new-password"
+              minLength={8}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className={accountInputClass}
+            />
+          </div>
+          {error ? (
+            <p className="text-sm font-semibold text-red-700" role="alert">
+              {error}
+            </p>
+          ) : null}
+          {ok ? <p className="text-sm font-semibold text-emerald-700">{auth.passwordSaved}</p> : null}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg transition-all hover:from-slate-900 hover:to-black disabled:opacity-60 sm:w-auto"
+          >
+            {loading ? "…" : auth.savePassword}
+          </button>
+        </form>
       </div>
     );
   }

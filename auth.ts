@@ -3,7 +3,6 @@ import Credentials from "next-auth/providers/credentials";
 import authConfig from "./auth.config";
 import { userIsAdmin } from "@/lib/auth/admin-access";
 import { authorizeCredentials } from "@/lib/auth/authorize-credentials";
-import { authorizeTelegram } from "@/lib/auth/authorize-telegram";
 import { getCachedUserProfile } from "@/lib/auth/session-user";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -46,18 +45,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => authorizeCredentials(credentials),
-    }),
-    Credentials({
-      id: "telegram",
-      name: "Telegram",
-      credentials: {
-        payload: { label: "Payload", type: "text" },
-      },
-      authorize: async (credentials) => {
-        const raw = credentials?.payload;
-        if (typeof raw !== "string" || raw.length === 0) return null;
-        return authorizeTelegram(raw);
-      },
     }),
   ],
 });

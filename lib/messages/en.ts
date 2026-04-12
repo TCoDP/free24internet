@@ -348,12 +348,6 @@ export const en: SiteMessages = {
     accountTelegram: "Telegram",
     accountId: "User ID",
     logout: "Log out",
-    orLoginWithTelegram: "or continue with Telegram",
-    telegramLoginHint: "Use the official widget — no site password required.",
-    telegramError: "Telegram sign-in failed. Please try again.",
-    telegramNotConfigured: "Telegram sign-in is temporarily unavailable.",
-    telegramLocalHttpsHint:
-      "On plain http://localhost the Telegram button often does not render. Stop the dev server, run npm run dev:https, open https://localhost:3000 and accept the certificate warning. Add localhost under your bot Domain in @BotFather.",
     accountSettingsTitle: "Profile settings",
     accountTabLanguage: "Language",
     accountSectionProfile: "Profile",
@@ -362,10 +356,10 @@ export const en: SiteMessages = {
     accountSectionSecurity: "Security",
     accountSectionLanguage: "Interface language",
     accountDisplayEmail: "Email address",
-    accountPasswordHintTelegram:
-      "You signed in with Telegram without a site password. Password change is not available here.",
     accountPasswordHintEmail:
       "Use a strong password you do not reuse on other sites.",
+    accountPasswordSetInitialBlurb:
+      "This account does not have a site password yet. Set one below to sign in with email.",
     currentPasswordLabel: "Current password",
     newPasswordLabel: "New password",
     confirmPasswordLabel: "Confirm new password",
@@ -378,17 +372,6 @@ export const en: SiteMessages = {
     accountProfileNameBlurb: "This name appears in the header and in your account.",
     accountLanguageNavHint:
       "Switching updates the site language and opens the same section without a full page reload.",
-    linkTelegramTitle: "Link Telegram",
-    linkTelegramBlurb:
-      "Generate a link and open it in Telegram — the bot will link this profile to your account. Each link is single-use and expires soon.",
-    linkTelegramLinked: "Telegram is already linked to this profile.",
-    linkTelegramGenerate: "Generate link",
-    linkTelegramOpenTelegram: "Open in Telegram",
-    linkTelegramCopy: "Copy link",
-    linkTelegramCopied: "Copied",
-    linkTelegramExpiresHint: "Valid for 15 minutes, one use only.",
-    linkTelegramWebhookMissing:
-      "Set TELEGRAM_WEBHOOK_SECRET in .env and run node scripts/register-telegram-webhook.mjs — otherwise the bot cannot complete linking.",
     accountTabTickets: "Support",
     accountTabReferrals: "Referrals",
     accountSectionReferrals: "Referral program",
@@ -430,7 +413,7 @@ export const en: SiteMessages = {
     profilePaySoon: "Coming soon",
     profilePayClose: "Close",
     profilePayTrialIntro:
-      "The free trial is available through our Telegram bot. You will find the bot link in the site header and in the Telegram linking section of your profile.",
+      "The free trial is available through our Telegram bot — you will find the link in the site header.",
     profilePayPlanLabel: "Plan",
     profilePayPriceLabel: "Price",
     profilePayDiscountLabel: "Discount",
@@ -468,8 +451,6 @@ export const en: SiteMessages = {
       wrong_password: "Current password is incorrect.",
       no_password: "This account has no password set.",
       password_mismatch: "New passwords do not match.",
-      link_telegram_taken:
-        "This Telegram account is already linked to another profile. Sign in to that account or use a different Telegram user.",
       referral_invalid: "This referral code was not found.",
       referral_self: "You cannot use your own code.",
       referral_already: "An inviter code is already saved.",
