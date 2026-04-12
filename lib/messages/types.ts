@@ -244,6 +244,7 @@ export interface SiteMessages {
     plansPayOnSite: string;
     plansPaymentNotReady: string;
     plansPaymentNotEligible: string;
+    plansPaymentPlanUnavailable: string;
     plansPaymentNoAuthUrl: string;
     transactionsTitle: string;
     transactionsEmpty: string;
@@ -403,6 +404,7 @@ export interface SiteMessages {
     monetaColId: string;
     monetaColUser: string;
     monetaColMonths: string;
+    monetaPurposeBalance: string;
     monetaColCreated: string;
     monetaColTx: string;
     monetaColAmount: string;

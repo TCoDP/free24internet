@@ -2,8 +2,8 @@
 
 import { AccountPurchaseModal } from "@/components/account/AccountPurchaseModal";
 import type { PricingCard, SiteMessages } from "@/lib/messages/types";
-import type { PricingConfig } from "@/lib/pricing/pricing-config";
 import { TELEGRAM_BOT_URL } from "@/lib/constants";
+import type { PricingConfig } from "@/lib/pricing/pricing-config";
 import { sortPricingCardsForDisplay } from "@/lib/pricing/sort-pricing-cards";
 import { BotOrAccountTrigger } from "@/components/bot-or-account/BotOrAccountProvider";
 import { useCallback, useMemo, useState, type ReactNode } from "react";
@@ -126,15 +126,12 @@ export function PricingPlanGrid({
   pricingSection: SiteMessages["pricingSection"];
   mode: "modal" | "direct" | "account";
   messages?: SiteMessages;
-  /** Конфиг цен из БД: сортировка карточек; в режиме account — ещё и модалка оплаты */
+  /** Конфиг цен из БД (модалка оплаты в личном кабинете) */
   pricing: PricingConfig;
   /** Только режим account: кнопка «Купить» для платных тарифов */
   canPayOnSite?: boolean;
 }) {
-  const sortedCards = useMemo(
-    () => sortPricingCardsForDisplay(pricingSection.cards, pricing),
-    [pricingSection.cards, pricing],
-  );
+  const sortedCards = useMemo(() => sortPricingCardsForDisplay(pricingSection.cards), [pricingSection.cards]);
 
   const [purchaseOpen, setPurchaseOpen] = useState(false);
   const [lockedPlanMonths, setLockedPlanMonths] = useState<number | null>(null);

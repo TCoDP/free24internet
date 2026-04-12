@@ -177,7 +177,9 @@ export default async function AdminMonetaPage({ searchParams }: Props) {
                       {r.mnt_transaction_id}
                     </td>
                     <td className="px-3 py-2 font-mono">{r.amount_rub}</td>
-                    <td className="px-3 py-2">{r.plan_months}</td>
+                    <td className="px-3 py-2">
+                      {r.purpose === "balance" ? a.monetaPurposeBalance : r.plan_months}
+                    </td>
                     <td className="px-3 py-2">{r.completed_at ? a.yes : a.no}</td>
                     <td className="px-3 py-2 font-mono text-xs">
                       {new Date(r.created_at).toISOString().slice(0, 16).replace("T", " ")}

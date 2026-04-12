@@ -1,7 +1,6 @@
 import type { Locale } from "@/lib/messages/types";
 import type { PricingCard, SiteMessages } from "@/lib/messages/types";
 import {
-  activePlanMonthValues,
   discountRateForPlan,
   formatRub,
   planPayRubFromConfig,
@@ -64,7 +63,7 @@ export function applyPricingToSiteMessages(
   const cardsRaw = messages.pricingSection.cards
     .map((c) => enrichCard(c, cfg, locale))
     .filter((c): c is PricingCard => c != null);
-  const cards = sortPricingCardsForDisplay(cardsRaw, cfg);
+  const cards = sortPricingCardsForDisplay(cardsRaw);
   return {
     ...messages,
     pricingSection: {

@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { findUserById } from "@/lib/auth/users";
 import { hasCompletedPurchaseByExternalId } from "@/lib/payments/transactions";
+import { creditUserBalanceRubByTgId } from "@/lib/payments/credit-user-balance";
 import { monetaPaymentNotificationSignature } from "@/lib/payments/moneta-assistant";
 import {
   findMonetaCheckoutSession,
@@ -110,14 +112,7 @@ async function handleMoneta(req: Request) {
     }
 
     const userId = Number(pending.user_id);
-    const planMonths = Number(pending.plan_months);
-    const pricing = await getPricingConfig();
-    if (
-      !Number.isFinite(userId) ||
-      userId <= 0 ||
-      !Number.isFinite(planMonths) ||
-      !isActivePlanMonths(planMonths, pricing)
-    ) {
+    if (!Number.isFinite(userId) || userId <= 0) {
       return textResponse("FAIL", 400);
     }
 
@@ -125,6 +120,31 @@ async function handleMoneta(req: Request) {
     const paidAmount = Number(mntAmount);
     if (!Number.isFinite(paidAmount) || Math.abs(pendingAmount - paidAmount) > 0.02) {
       console.warn("[webhooks/moneta] amount mismatch", pendingAmount, paidAmount);
+      return textResponse("FAIL", 400);
+    }
+
+    const purpose = String(pending.purpose ?? "plan").trim() || "plan";
+
+    if (purpose === "balance") {
+      const siteUser = await findUserById(userId);
+      const tgRaw = siteUser?.tg_id;
+      const tgId = tgRaw != null ? Number(tgRaw) : NaN;
+      if (!Number.isFinite(tgId) || tgId <= 0) {
+        console.warn("[webhooks/moneta] balance top-up: no tg_id for user", userId);
+        return textResponse("FAIL", 400);
+      }
+      const credited = await creditUserBalanceRubByTgId(tgId, paidAmount);
+      if (!credited.ok) {
+        console.error("[webhooks/moneta] creditUserBalanceRubByTgId failed", { userId, tgId, paidAmount });
+        return textResponse("FAIL", 500);
+      }
+      await markMonetaCheckoutCompletedForce(mntTransactionId);
+      return textResponse("SUCCESS", 200);
+    }
+
+    const planMonths = Number(pending.plan_months);
+    const pricing = await getPricingConfig();
+    if (!Number.isFinite(planMonths) || !isActivePlanMonths(planMonths, pricing)) {
       return textResponse("FAIL", 400);
     }
 

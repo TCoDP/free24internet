@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
+import { userIsSitePayEligible } from "@/lib/account/site-pay-eligible";
 import { isProtectedSuperadminUserId } from "@/lib/auth/admin-access";
 import type { UserRow } from "@/lib/auth/types";
 import type { SiteMessages } from "@/lib/messages/types";
@@ -24,7 +25,7 @@ export function AdminUserEditForm({
   const router = useRouter();
   const [name, setName] = useState(user.name?.trim() ?? "");
   const [language, setLanguage] = useState(user.language === "en" ? "en" : user.language === "ru" ? "ru" : "");
-  const [isTheir, setIsTheir] = useState(Boolean(Number(user.is_their)));
+  const [isTheir, setIsTheir] = useState(userIsSitePayEligible(user));
   const [isAdmin, setIsAdmin] = useState(Boolean(Number(user.is_admin)));
   const [subUntil, setSubUntil] = useState(toInputDateTime(user.subscription_until));
   const [trialUntil, setTrialUntil] = useState(toInputDateTime(user.trial_ends_at));

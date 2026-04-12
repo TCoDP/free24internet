@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS pricing_plan_terms (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT IGNORE INTO pricing_plan_terms (months, discount_rate, referrer_bonus_days, sort_order, is_active) VALUES
-(1, 0, 7, 10, 1),
-(3, 0.05, 12, 20, 1),
-(6, 0.1, 18, 30, 1),
-(12, 0.15, 30, 40, 1);
+(12, 0.15, 30, 10, 1),
+(6, 0.1, 18, 20, 1),
+(3, 0.05, 12, 30, 1),
+(1, 0, 7, 40, 1);

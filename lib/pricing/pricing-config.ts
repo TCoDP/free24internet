@@ -17,10 +17,10 @@ export const DEFAULT_PRICING_CONFIG: PricingConfig = {
   baseMonthlyRub: 60,
   trialDays: 7,
   terms: [
-    { months: 1, discountRate: 0, referrerBonusDays: 7, sortOrder: 10, isActive: true },
-    { months: 3, discountRate: 0.05, referrerBonusDays: 12, sortOrder: 20, isActive: true },
-    { months: 6, discountRate: 0.1, referrerBonusDays: 18, sortOrder: 30, isActive: true },
-    { months: 12, discountRate: 0.15, referrerBonusDays: 30, sortOrder: 40, isActive: true },
+    { months: 12, discountRate: 0.15, referrerBonusDays: 30, sortOrder: 10, isActive: true },
+    { months: 6, discountRate: 0.1, referrerBonusDays: 18, sortOrder: 20, isActive: true },
+    { months: 3, discountRate: 0.05, referrerBonusDays: 12, sortOrder: 30, isActive: true },
+    { months: 1, discountRate: 0, referrerBonusDays: 7, sortOrder: 40, isActive: true },
   ],
 };
 

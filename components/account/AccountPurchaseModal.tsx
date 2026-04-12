@@ -104,6 +104,7 @@ export function AccountPurchaseModal({
       if (data.reason === "no_auth_url") setMsg(a.plansPaymentNoAuthUrl);
       else if (data.reason === "not_configured") setMsg(a.plansPaymentNotReady);
       else if (data.reason === "not_eligible") setMsg(a.plansPaymentNotEligible);
+      else if (data.reason === "plan_unavailable") setMsg(a.plansPaymentPlanUnavailable);
       else setMsg(a.errors.server);
     } catch {
       setMsg(a.errors.network);

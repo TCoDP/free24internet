@@ -6,6 +6,7 @@ export type MonetaSessionRow = {
   id: number;
   mnt_transaction_id: string;
   user_id: number;
+  purpose: string;
   plan_months: number;
   referral_code: string | null;
   amount_rub: string;
@@ -61,19 +62,20 @@ export async function adminListMonetaSessions(params: {
       `SELECT COUNT(*) AS c FROM moneta_checkout_sessions WHERE
         CAST(id AS CHAR) LIKE ? OR CAST(user_id AS CHAR) LIKE ? OR mnt_transaction_id LIKE ?
         OR CAST(amount_rub AS CHAR) LIKE ? OR CAST(plan_months AS CHAR) LIKE ?
-        OR IFNULL(referral_code,'') LIKE ?`,
-      [like, like, like, like, like, like],
+        OR IFNULL(referral_code,'') LIKE ? OR IFNULL(purpose,'') LIKE ?`,
+      [like, like, like, like, like, like, like],
     );
     const total = Number(countRows[0]?.c ?? 0);
     const [rows] = await pool.execute<Packet[]>(
-      `SELECT id, mnt_transaction_id, user_id, plan_months, referral_code, amount_rub, created_at, completed_at
+      `SELECT id, mnt_transaction_id, user_id, COALESCE(purpose,'plan') AS purpose,
+              plan_months, referral_code, amount_rub, created_at, completed_at
        FROM moneta_checkout_sessions WHERE
         CAST(id AS CHAR) LIKE ? OR CAST(user_id AS CHAR) LIKE ? OR mnt_transaction_id LIKE ?
         OR CAST(amount_rub AS CHAR) LIKE ? OR CAST(plan_months AS CHAR) LIKE ?
-        OR IFNULL(referral_code,'') LIKE ?
+        OR IFNULL(referral_code,'') LIKE ? OR IFNULL(purpose,'') LIKE ?
        ORDER BY ${order}
        LIMIT ? OFFSET ?`,
-      [like, like, like, like, like, like, pageSize, offset],
+      [like, like, like, like, like, like, like, pageSize, offset],
     );
     return { rows, total };
   }
@@ -83,7 +85,8 @@ export async function adminListMonetaSessions(params: {
   );
   const total = Number(countRows[0]?.c ?? 0);
   const [rows] = await pool.execute<Packet[]>(
-    `SELECT id, mnt_transaction_id, user_id, plan_months, referral_code, amount_rub, created_at, completed_at
+    `SELECT id, mnt_transaction_id, user_id, COALESCE(purpose,'plan') AS purpose,
+            plan_months, referral_code, amount_rub, created_at, completed_at
      FROM moneta_checkout_sessions
      ORDER BY ${order}
      LIMIT ? OFFSET ?`,
