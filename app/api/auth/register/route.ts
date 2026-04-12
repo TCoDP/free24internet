@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { hashPassword } from "@/lib/auth/password";
-import { createUser, findUserByEmail } from "@/lib/auth/users";
+import { createUser, findUserByEmail, findUserIdByReferralCode } from "@/lib/auth/users";
 import { normalizeEmail, normalizeName, normalizePassword } from "@/lib/auth/validate";
 
 export const runtime = "nodejs";
@@ -11,6 +11,7 @@ export async function POST(req: Request) {
     const email = normalizeEmail(body.email);
     const password = normalizePassword(body.password);
     const name = normalizeName(body.name);
+    const refRaw = typeof body.referralCode === "string" ? body.referralCode : "";
 
     if (!email || !password) {
       return NextResponse.json({ error: "validation" }, { status: 400 });
@@ -21,8 +22,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "email_taken" }, { status: 409 });
     }
 
+    let referredByUserId: number | null = null;
+    if (refRaw.trim()) {
+      referredByUserId = await findUserIdByReferralCode(refRaw);
+      if (!referredByUserId) {
+        return NextResponse.json({ error: "referral_invalid" }, { status: 400 });
+      }
+    }
+
     const passwordHash = hashPassword(password);
-    const userId = await createUser(email, passwordHash, name);
+    const userId = await createUser(email, passwordHash, name, {
+      referredByUserId: referredByUserId ?? undefined,
+    });
 
     return NextResponse.json({ ok: true, user: { id: userId, email, name } });
   } catch (e) {

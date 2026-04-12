@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PublicPageBreadcrumbs } from "@/components/PublicPageBreadcrumbs";
 import { SiteShell } from "@/components/SiteShell";
 import { SITE_ORIGIN } from "@/lib/constants";
 import { getMessages } from "@/lib/messages";
@@ -19,6 +20,7 @@ export default async function TermsRuPage() {
     <SiteShell messages={messages}>
       <main className="min-h-screen flex-grow px-4 pb-16 pt-32 md:px-8">
         <div className="mx-auto w-full max-w-[1000px]">
+          <PublicPageBreadcrumbs messages={messages} />
           <h1 className="mb-8 text-center text-3xl font-extrabold text-dark md:text-4xl">
             Пользовательское соглашение
           </h1>

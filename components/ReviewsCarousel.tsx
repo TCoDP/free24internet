@@ -13,7 +13,7 @@ export function ReviewsCarousel({
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="overflow-hidden bg-light py-16 md:py-24" id="reviews">
+    <section className="overflow-hidden bg-light pt-16 pb-24 md:pt-24 md:pb-32" id="reviews">
       <div className="group relative mx-auto max-w-[1200px] px-4 md:px-8">
         <h2 className="mb-12 text-center text-3xl font-extrabold text-dark md:text-4xl">{title}</h2>
         <button

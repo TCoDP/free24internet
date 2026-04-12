@@ -11,7 +11,7 @@ export function SiteFooter({ messages }: { messages: SiteMessages }) {
   const termsHref = messages.locale === "en" ? "/en/terms" : "/terms";
 
   return (
-    <footer className="bg-[#111418] pb-8 pt-16 text-gray-300">
+    <footer className="bg-[#111418] pt-16 text-gray-300 pb-[max(3.5rem,calc(2rem+env(safe-area-inset-bottom,0px)))] md:pb-[max(4.5rem,calc(2rem+env(safe-area-inset-bottom,0px)))]">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
@@ -43,19 +43,19 @@ export function SiteFooter({ messages }: { messages: SiteMessages }) {
                 </Link>
               </li>
               <li>
-                <a href={`${base}/#about`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#about`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.about}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={`${base}/#pricing`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#pricing`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.pricing}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={`${base}/#reviews`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#reviews`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.reviews}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -63,24 +63,24 @@ export function SiteFooter({ messages }: { messages: SiteMessages }) {
             <h4 className="mb-6 text-lg font-bold text-white">{messages.footer.services}</h4>
             <ul className="space-y-4">
               <li>
-                <a href={`${base}/#features`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#features`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.s1}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={`${base}/#features`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#features`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.s2}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={`${base}/#features`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#features`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.s3}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={`${base}/#features`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#features`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.s4}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -98,14 +98,14 @@ export function SiteFooter({ messages }: { messages: SiteMessages }) {
                 </a>
               </li>
               <li>
-                <a href={`${base}/#faq`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#faq`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.faq}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href={`${base}/#quiz`} className="text-gray-400 transition-colors hover:text-primary">
+                <Link href={`${base}/#quiz`} className="text-gray-400 transition-colors hover:text-primary">
                   {messages.footer.helpChoice}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -13,14 +13,15 @@ export async function SiteShell({
   children: ReactNode;
 }) {
   const session = await auth();
-  const user =
-    session?.user?.id && session.user.email
-      ? {
-          id: Number(session.user.id),
-          email: session.user.email,
-          name: session.user.name ?? null,
-        }
-      : null;
+  const user = session?.user?.id
+    ? {
+        id: Number(session.user.id),
+        email: session.user.email ?? "",
+        name: session.user.name ?? null,
+        tgUsername: session.user.tgUsername ?? null,
+        isAdmin: Boolean(session.user.isAdmin),
+      }
+    : null;
   return (
     <ConnectModalProvider labels={messages.modal}>
       <SiteHeader messages={messages} user={user} />

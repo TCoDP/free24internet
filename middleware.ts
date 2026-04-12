@@ -1,5 +1,18 @@
-export { auth as middleware } from "@/auth";
+import NextAuth from "next-auth";
+import authConfig from "./auth.config";
+
+const { auth } = NextAuth(authConfig);
+export { auth as middleware };
 
 export const config = {
-  matcher: ["/account", "/en/account", "/login", "/register", "/en/login", "/en/register"],
+  matcher: [
+    "/account",
+    "/account/:path*",
+    "/en/account",
+    "/en/account/:path*",
+    "/login",
+    "/register",
+    "/en/login",
+    "/en/register",
+  ],
 };

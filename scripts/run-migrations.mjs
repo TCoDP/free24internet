@@ -36,8 +36,11 @@ function getConnectionConfig() {
 
 async function main() {
   const cfg = getConnectionConfig();
-  const conn =
-    typeof cfg === "string" ? await mysql.createConnection(cfg) : await mysql.createConnection(cfg);
+  const conn = await mysql.createConnection(
+    typeof cfg === "string"
+      ? { uri: cfg, multipleStatements: true }
+      : { ...cfg, multipleStatements: true },
+  );
 
   await conn.query(`
     CREATE TABLE IF NOT EXISTS fi_schema_migrations (

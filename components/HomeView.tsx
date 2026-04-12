@@ -1,12 +1,13 @@
 import Image from "next/image";
 import type { SiteMessages } from "@/lib/messages/types";
-import { TELEGRAM_BOT_URL } from "@/lib/constants";
+import type { PricingConfig } from "@/lib/pricing/pricing-config";
 import { FaqList } from "./FaqList";
 import { HeroSlider } from "./HeroSlider";
+import { PricingPlanGrid } from "./PricingPlanGrid";
 import { QuizSection } from "./QuizSection";
 import { ReviewsCarousel } from "./ReviewsCarousel";
 
-export function HomeView({ messages }: { messages: SiteMessages }) {
+export function HomeView({ messages, pricing }: { messages: SiteMessages; pricing: PricingConfig }) {
   const { pricingSection, featuresSection, about, faqSection, reviewsSection } = messages;
 
   return (
@@ -86,69 +87,14 @@ export function HomeView({ messages }: { messages: SiteMessages }) {
       </section>
 
       <section className="bg-white py-16 md:py-24" id="pricing">
-        <div className="mx-auto max-w-[1200px] px-4 text-center md:px-8">
-          <h2 className="mb-4 text-3xl font-extrabold text-dark md:text-4xl">
+        <div className="mx-auto max-w-[1200px] px-4 md:px-8">
+          <h2 className="mb-4 text-center text-3xl font-extrabold text-dark md:text-4xl">
             {pricingSection.title}
           </h2>
-          <p className="mx-auto mb-12 max-w-2xl text-base text-slate-600 md:mb-16 md:text-lg">
+          <p className="mx-auto mb-12 max-w-2xl text-center text-base text-slate-600 md:mb-16 md:text-lg">
             {pricingSection.subtitle}
           </p>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
-            {pricingSection.cards.map((card) => (
-              <div
-                key={card.title}
-                className={`relative flex flex-col rounded-3xl p-8 shadow-md transition-transform hover:-translate-y-2 ${
-                  card.highlight
-                    ? "scale-100 border-2 border-primary bg-dark text-white shadow-2xl md:scale-105"
-                    : "border-2 border-transparent bg-light"
-                }`}
-              >
-                {card.badge ? (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-primary px-6 py-1 text-sm font-extrabold text-white">
-                    {card.badge}
-                  </div>
-                ) : null}
-                <h3
-                  className={`mb-2 text-2xl font-extrabold ${card.highlight ? "text-white" : "text-dark"}`}
-                >
-                  {card.title}
-                </h3>
-                <div
-                  className={`mb-2 text-5xl font-black ${card.highlight ? "text-white" : "text-dark"}`}
-                >
-                  {card.price}
-                  <span
-                    className={`text-lg font-semibold ${card.highlight ? "text-slate-400" : "text-slate-400"}`}
-                  >
-                    {card.period}
-                  </span>
-                </div>
-                <p
-                  className={`mb-8 text-sm ${card.highlight ? "text-slate-400" : "text-slate-500"}`}
-                >
-                  {card.blurb}
-                </p>
-                <ul className="mb-8 flex-grow space-y-4 text-left font-semibold">
-                  {card.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3">
-                      <span className="text-xl font-bold text-primary">✓</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={TELEGRAM_BOT_URL}
-                  className={`w-full rounded-full py-3.5 text-lg font-extrabold transition-all ${
-                    card.highlight
-                      ? "bg-white text-dark hover:bg-gray-100"
-                      : "animate-pulse-custom bg-primary text-white hover:bg-primary-hover"
-                  }`}
-                >
-                  {card.cta}
-                </a>
-              </div>
-            ))}
-          </div>
+          <PricingPlanGrid pricingSection={pricingSection} mode="modal" pricing={pricing} />
         </div>
       </section>
 

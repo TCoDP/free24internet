@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { BotOrAccountTrigger } from "@/components/bot-or-account/BotOrAccountProvider";
 import type { Locale } from "@/lib/locale";
 import type { SiteMessages } from "@/lib/messages/types";
-import { TELEGRAM_BOT_URL } from "@/lib/constants";
 
 function stepLabel(locale: Locale, step: number) {
   return locale === "en" ? `Question ${step} of 3` : `Вопрос ${step} из 3`;
@@ -80,12 +80,9 @@ export function QuizSection({
             <div className="animate-fade-in text-center">
               <h3 className="mb-4 text-3xl font-extrabold text-primary">{quiz.resultTitle}</h3>
               <p className="mb-8 text-lg text-slate-600">{quiz.resultBody}</p>
-              <a
-                href={TELEGRAM_BOT_URL}
-                className="animate-pulse-custom inline-block w-full rounded-full bg-primary py-4 text-xl font-extrabold text-white transition-all hover:bg-primary-hover"
-              >
+              <BotOrAccountTrigger className="animate-pulse-custom inline-block w-full rounded-full bg-primary py-4 text-center text-xl font-extrabold text-white transition-all hover:bg-primary-hover">
                 {quiz.resultCta}
-              </a>
+              </BotOrAccountTrigger>
             </div>
           ) : null}
         </div>

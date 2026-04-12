@@ -16,9 +16,12 @@ export default async function EnLoginPage() {
   const messages = getMessages("en");
   return (
     <SiteShell messages={messages}>
-      <AuthCard title={messages.auth.loginTitle}>
+      <AuthCard messages={messages} title={messages.auth.loginTitle}>
         <Suspense fallback={<div className="h-48 animate-pulse rounded-xl bg-slate-100" />}>
-          <LoginForm messages={messages} />
+          <LoginForm
+            messages={messages}
+            telegramAuthEnabled={Boolean(process.env.TELEGRAM_BOT_TOKEN?.trim())}
+          />
         </Suspense>
       </AuthCard>
     </SiteShell>

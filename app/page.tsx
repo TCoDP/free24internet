@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { BotOrAccountProvider } from "@/components/bot-or-account/BotOrAccountProvider";
 import { HomeView } from "@/components/HomeView";
 import { SiteShell } from "@/components/SiteShell";
 import { SITE_ORIGIN } from "@/lib/constants";
 import { getMessages } from "@/lib/messages";
+import { applyPricingToSiteMessages } from "@/lib/pricing/apply-pricing-to-messages";
+import { getPricingConfig } from "@/lib/pricing/load-pricing";
 import { ru } from "@/lib/messages/ru";
 
 export const metadata: Metadata = {
@@ -26,10 +29,13 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const messages = getMessages("ru");
+  const pricing = await getPricingConfig();
+  const messages = applyPricingToSiteMessages(getMessages("ru"), pricing);
   return (
     <SiteShell messages={messages}>
-      <HomeView messages={messages} />
+      <BotOrAccountProvider messages={messages}>
+        <HomeView messages={messages} pricing={pricing} />
+      </BotOrAccountProvider>
     </SiteShell>
   );
 }

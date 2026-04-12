@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
+    "dev:127": "next dev --webpack -H 127.0.0.1",
+    "dev:https": "next dev --webpack --experimental-https",
     "build": "next build --webpack",
     "start": "next start -H 0.0.0.0",
     "lint": "eslint",
-    "db:migrate": "node --env-file=.env scripts/run-migrations.mjs"
+    "db:migrate": "node --env-file=.env scripts/run-migrations.mjs",
+    "telegram:set-webhook": "node --env-file=.env scripts/register-telegram-webhook.mjs"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type { SiteMessages } from "@/lib/messages/types";
+import { accountSectionPath } from "@/lib/account/paths";
 import { pathPrefix } from "@/lib/locale";
 
 type ErrKey = keyof SiteMessages["auth"]["errors"];
@@ -20,8 +21,14 @@ function pickError(
 
 export function RegisterForm({ messages }: { messages: SiteMessages }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const referralFromUrl = useMemo(() => {
+    const r = searchParams.get("ref")?.trim();
+    return r && r.length > 0 ? r : undefined;
+  }, [searchParams]);
+
   const p = pathPrefix(messages.locale);
-  const accountPath = `${p}/account`;
+  const accountPath = accountSectionPath(messages.locale, "profile");
   const loginPath = `${p}/login`;
 
   const [email, setEmail] = useState("");
@@ -32,16 +39,25 @@ export function RegisterForm({ messages }: { messages: SiteMessages }) {
 
   const { auth } = messages;
 
-  const onSubmit = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
+  const submit = useCallback(async () => {
+      const trimmedEmail = email.trim();
+      const trimmedPassword = password.trim();
+      if (!trimmedEmail || trimmedPassword.length < 8) {
+        setError(auth.errors.validation);
+        return;
+      }
       setError(null);
       setLoading(true);
       try {
         const res = await fetch("/api/auth/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password, name: name || undefined }),
+          body: JSON.stringify({
+            email: trimmedEmail,
+            password: trimmedPassword,
+            name: name.trim() || undefined,
+            referralCode: referralFromUrl,
+          }),
         });
         const data = (await res.json()) as { error?: string };
         if (!res.ok) {
@@ -49,8 +65,8 @@ export function RegisterForm({ messages }: { messages: SiteMessages }) {
           return;
         }
         const signInRes = await signIn("credentials", {
-          email,
-          password,
+          email: trimmedEmail,
+          password: trimmedPassword,
           redirect: false,
         });
         if (signInRes?.error || !signInRes?.ok) {
@@ -64,12 +80,19 @@ export function RegisterForm({ messages }: { messages: SiteMessages }) {
       } finally {
         setLoading(false);
       }
-    },
-    [email, password, name, router, accountPath, auth.errors],
-  );
+    }, [email, password, name, referralFromUrl, router, accountPath, auth.errors]);
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-5">
+    <form
+      method="post"
+      className="flex flex-col gap-5"
+      noValidate
+      onSubmit={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        void submit();
+      }}
+    >
       {error ? (
         <p
           className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800"

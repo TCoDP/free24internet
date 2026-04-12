@@ -5,13 +5,21 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { useCallback, useState } from "react";
 import type { SiteMessages } from "@/lib/messages/types";
+import { accountSectionPath } from "@/lib/account/paths";
 import { pathPrefix } from "@/lib/locale";
+import { TelegramLogin } from "./TelegramLogin";
 
-export function LoginForm({ messages }: { messages: SiteMessages }) {
+export function LoginForm({
+  messages,
+  telegramAuthEnabled,
+}: {
+  messages: SiteMessages;
+  telegramAuthEnabled: boolean;
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const p = pathPrefix(messages.locale);
-  const accountPath = `${p}/account`;
+  const accountPath = accountSectionPath(messages.locale, "profile");
   const registerPath = `${p}/register`;
 
   const [email, setEmail] = useState("");
@@ -21,15 +29,19 @@ export function LoginForm({ messages }: { messages: SiteMessages }) {
 
   const { auth } = messages;
 
-  const onSubmit = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
+  const submit = useCallback(async () => {
+      const trimmedEmail = email.trim();
+      const trimmedPassword = password.trim();
+      if (!trimmedEmail || trimmedPassword.length < 8) {
+        setError(auth.errors.validation);
+        return;
+      }
       setError(null);
       setLoading(true);
       try {
         const res = await signIn("credentials", {
-          email,
-          password,
+          email: trimmedEmail,
+          password: trimmedPassword,
           redirect: false,
         });
         if (res?.error) {
@@ -53,12 +65,20 @@ export function LoginForm({ messages }: { messages: SiteMessages }) {
       } finally {
         setLoading(false);
       }
-    },
-    [email, password, router, searchParams, accountPath, auth.errors],
-  );
+    }, [email, password, router, searchParams, accountPath, auth.errors]);
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5">
+    <form
+      method="post"
+      className="flex flex-col gap-5"
+      noValidate
+      onSubmit={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        void submit();
+      }}
+    >
       {error ? (
         <p
           className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800"
@@ -105,12 +125,25 @@ export function LoginForm({ messages }: { messages: SiteMessages }) {
       >
         {loading ? "…" : auth.submitLogin}
       </button>
+    </form>
+
+      <div className="relative py-2">
+        <div className="absolute inset-0 flex items-center" aria-hidden>
+          <div className="w-full border-t border-slate-200" />
+        </div>
+        <div className="relative flex justify-center text-sm">
+          <span className="bg-light px-3 font-bold text-slate-500">{auth.orLoginWithTelegram}</span>
+        </div>
+      </div>
+
+      <TelegramLogin messages={messages} enabled={telegramAuthEnabled} />
+
       <p className="text-center text-sm text-slate-600">
         {auth.needAccount}{" "}
         <Link href={registerPath} className="font-bold text-primary hover:underline">
           {auth.needAccountLink}
         </Link>
       </p>
-    </form>
+    </div>
   );
 }

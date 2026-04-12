@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type { HeroSlide, SiteMessages } from "@/lib/messages/types";
-import { TELEGRAM_BOT_URL } from "@/lib/constants";
+import { BotOrAccountTrigger } from "@/components/bot-or-account/BotOrAccountProvider";
 
 export function HeroSlider({
   slides,
@@ -52,19 +52,13 @@ export function HeroSlider({
                   {slide.description}
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <a
-                    href={TELEGRAM_BOT_URL}
-                    className="animate-pulse-custom rounded-full bg-primary px-8 py-3.5 text-center text-base font-extrabold text-white transition-all hover:bg-primary-hover md:text-lg"
-                  >
+                  <BotOrAccountTrigger className="animate-pulse-custom rounded-full bg-primary px-8 py-3.5 text-center text-base font-extrabold text-white transition-all hover:bg-primary-hover md:text-lg">
                     {slide.primaryCta}
-                  </a>
+                  </BotOrAccountTrigger>
                   {slide.secondaryCta ? (
-                    <a
-                      href={TELEGRAM_BOT_URL}
-                      className="rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-center text-base font-extrabold text-white transition-all hover:bg-white/20 md:text-lg"
-                    >
+                    <BotOrAccountTrigger className="rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-center text-base font-extrabold text-white transition-all hover:bg-white/20 md:text-lg">
                       {slide.secondaryCta}
-                    </a>
+                    </BotOrAccountTrigger>
                   ) : null}
                 </div>
               </div>

@@ -11,7 +11,8 @@ export async function authorizeCredentials(
   if (!email || password.length < 8) return null;
 
   const row = await findUserByEmail(email);
-  if (!row || !verifyPassword(password, row.password_hash)) return null;
+  if (!row?.email || !row.password_hash) return null;
+  if (!verifyPassword(password, row.password_hash)) return null;
 
   return {
     id: String(row.id),

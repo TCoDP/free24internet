@@ -6,11 +6,17 @@ declare module "next-auth" {
       id: string;
       email: string;
       name: string | null;
+      tgUsername: string | null;
+      /** Подтягивается из БД при каждом запросе сессии */
+      isAdmin?: boolean;
     } & DefaultSession["user"];
   }
 
   interface User {
     id: string;
+    email?: string | null;
+    name?: string | null;
+    tgUsername?: string | null;
   }
 }
 
@@ -19,5 +25,6 @@ declare module "next-auth/jwt" {
     id?: string;
     email?: string;
     name?: string;
+    tgUsername?: string | null;
   }
 }

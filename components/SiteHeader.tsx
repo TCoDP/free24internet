@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { SessionUser } from "@/lib/auth/types";
 import type { SiteMessages } from "@/lib/messages/types";
+import { accountSectionPath } from "@/lib/account/paths";
 import { pathPrefix } from "@/lib/locale";
 import { TELEGRAM_BOT_URL } from "@/lib/constants";
-import { LogoutButton } from "./LogoutButton";
 import { useConnectModal } from "./ConnectModalContext";
 
 export function SiteHeader({
@@ -63,30 +63,30 @@ export function SiteHeader({
         </Link>
 
         <div className="hidden min-w-0 flex-1 items-center justify-center gap-6 lg:flex xl:gap-8">
-          <a
+          <Link
             href={`${p || ""}/#about`}
             className="shrink-0 text-sm font-semibold text-gray-300 transition-colors hover:text-white"
           >
             {messages.nav.about}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`${p || ""}/#features`}
             className="shrink-0 text-sm font-semibold text-gray-300 transition-colors hover:text-white"
           >
             {messages.nav.features}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`${p || ""}/#pricing`}
             className="shrink-0 text-sm font-semibold text-gray-300 transition-colors hover:text-white"
           >
             {messages.nav.pricing}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`${p || ""}/#faq`}
             className="shrink-0 text-sm font-semibold text-gray-300 transition-colors hover:text-white"
           >
             {messages.nav.faq}
-          </a>
+          </Link>
         </div>
 
         {/* Один блок справа: авторизация + язык + CTA — иначе justify-between сжимает «Вход» и «Регистрацию» в одну строку без зазора */}
@@ -94,16 +94,19 @@ export function SiteHeader({
           {user ? (
             <div className="flex items-center gap-4 border-r border-slate-600/80 pr-4 md:pr-5">
               <Link
-                href={`${p}/account`}
+                href={accountSectionPath(messages.locale, "profile")}
                 className="whitespace-nowrap text-sm font-semibold text-gray-300 transition-colors hover:text-white"
               >
                 {messages.auth.accountTitle}
               </Link>
-              <LogoutButton
-                label={messages.auth.logout}
-                locale={messages.locale}
-                className="!shrink-0 !border-slate-500 !py-1.5 !text-xs !text-gray-200 hover:!border-white hover:!text-white"
-              />
+              {user.isAdmin ? (
+                <Link
+                  href={p ? `${p}/admin` : "/admin"}
+                  className="whitespace-nowrap text-sm font-bold text-amber-400 transition-colors hover:text-amber-200"
+                >
+                  {messages.adminPanel.title}
+                </Link>
+              ) : null}
             </div>
           ) : (
             <div className="flex items-center gap-4 border-r border-slate-600/80 pr-4 md:pr-5">
@@ -189,7 +192,7 @@ export function SiteHeader({
       <div
         id="mobile-nav-dialog"
         ref={menuPanelRef}
-        className="mobile-nav-drawer fixed inset-0 z-[1001] flex flex-col bg-white pb-8 pt-[env(safe-area-inset-top)] lg:hidden"
+        className={`mobile-nav-drawer fixed inset-0 z-[1001] flex flex-col bg-white pb-8 pt-[env(safe-area-inset-top)] lg:hidden ${menuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
         style={{
           transform: menuOpen ? "translateY(0)" : "translateY(-100%)",
           WebkitTransform: menuOpen ? "translateY(0)" : "translateY(-100%)",
@@ -228,58 +231,61 @@ export function SiteHeader({
           </button>
         </div>
         <div className="mt-2 flex flex-col px-6">
-          <a
+          <Link
             href={`${p || ""}/#about`}
             onClick={closeMobile}
             className="mobile-link border-b border-slate-200 py-5 text-lg font-bold text-dark transition-colors hover:text-primary"
           >
             {messages.mobileNav.about}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`${p || ""}/#features`}
             onClick={closeMobile}
             className="mobile-link border-b border-slate-200 py-5 text-lg font-bold text-dark transition-colors hover:text-primary"
           >
             {messages.mobileNav.features}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`${p || ""}/#pricing`}
             onClick={closeMobile}
             className="mobile-link border-b border-slate-200 py-5 text-lg font-bold text-dark transition-colors hover:text-primary"
           >
             {messages.mobileNav.pricing}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`${p || ""}/#reviews`}
             onClick={closeMobile}
             className="mobile-link border-b border-slate-200 py-5 text-lg font-bold text-dark transition-colors hover:text-primary"
           >
             {messages.mobileNav.reviews}
-          </a>
-          <a
+          </Link>
+          <Link
             href={`${p || ""}/#faq`}
             onClick={closeMobile}
             className="mobile-link border-b border-slate-200 py-5 text-lg font-bold text-dark transition-colors hover:text-primary"
           >
             {messages.mobileNav.faq}
-          </a>
+          </Link>
         </div>
         <div className="mt-4 flex flex-col gap-3 border-t border-slate-200 px-6 pt-6">
           {user ? (
             <>
               <Link
-                href={`${p}/account`}
+                href={accountSectionPath(messages.locale, "profile")}
                 onClick={closeMobile}
                 className="rounded-xl bg-slate-100 py-4 text-center text-lg font-bold text-dark transition-colors hover:bg-slate-200"
               >
                 {messages.auth.accountTitle}
               </Link>
-              <LogoutButton
-                label={messages.auth.logout}
-                locale={messages.locale}
-                onAction={closeMobile}
-                className="w-full !py-3 !text-base"
-              />
+              {user.isAdmin ? (
+                <Link
+                  href={p ? `${p}/admin` : "/admin"}
+                  onClick={closeMobile}
+                  className="rounded-xl border-2 border-amber-500 py-4 text-center text-lg font-bold text-amber-800 transition-colors hover:bg-amber-50"
+                >
+                  {messages.adminPanel.title}
+                </Link>
+              ) : null}
             </>
           ) : (
             <>

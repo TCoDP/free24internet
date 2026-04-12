@@ -1,12 +1,43 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { NextResponse } from "next/server";
+import authConfig from "./auth.config";
+import { userIsAdmin } from "@/lib/auth/admin-access";
+import { authorizeCredentials } from "@/lib/auth/authorize-credentials";
+import { authorizeTelegram } from "@/lib/auth/authorize-telegram";
+import { getCachedUserProfile } from "@/lib/auth/session-user";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  trustHost: true,
-  session: {
-    strategy: "jwt",
-    maxAge: 60 * 60 * 24 * 14,
+  ...authConfig,
+  callbacks: {
+    ...authConfig.callbacks,
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = String(token.id ?? "");
+        session.user.email = String(token.email ?? session.user.email ?? "");
+        session.user.name =
+          typeof token.name === "string" && token.name.length > 0 ? token.name : null;
+        session.user.tgUsername =
+          typeof token.tgUsername === "string" && token.tgUsername.length > 0
+            ? token.tgUsername
+            : null;
+      }
+      try {
+        const id = Number(token.id);
+        if (Number.isFinite(id) && id > 0) {
+          const row = await getCachedUserProfile(id);
+          if (row && session.user) {
+            session.user.name = row.name?.trim() ? row.name.trim() : null;
+            if (row.email) session.user.email = row.email;
+            const tg = row.tg_username?.trim();
+            session.user.tgUsername = tg && tg.length > 0 ? tg : null;
+            session.user.isAdmin = userIsAdmin(row);
+          }
+        }
+      } catch {
+        /* JWT без БД */
+      }
+      return session;
+    },
   },
   providers: [
     Credentials({
@@ -14,60 +45,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
+      authorize: async (credentials) => authorizeCredentials(credentials),
+    }),
+    Credentials({
+      id: "telegram",
+      name: "Telegram",
+      credentials: {
+        payload: { label: "Payload", type: "text" },
+      },
       authorize: async (credentials) => {
-        const { authorizeCredentials } = await import(
-          /* webpackIgnore: true */
-          "@/lib/auth/authorize-credentials"
-        );
-        return authorizeCredentials(credentials);
+        const raw = credentials?.payload;
+        if (typeof raw !== "string" || raw.length === 0) return null;
+        return authorizeTelegram(raw);
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id;
-        if (user.email) token.email = user.email;
-        token.name = user.name ?? "";
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (session.user) {
-        session.user.id = String(token.id ?? "");
-        session.user.email = String(token.email ?? session.user.email ?? "");
-        session.user.name =
-          typeof token.name === "string" && token.name.length > 0 ? token.name : null;
-      }
-      return session;
-    },
-    authorized({ request, auth }) {
-      const { pathname } = request.nextUrl;
-      const isEn = pathname.startsWith("/en/");
-      const loginPath = isEn ? "/en/login" : "/login";
-      const registerPath = isEn ? "/en/register" : "/register";
-      const accountPath = isEn ? "/en/account" : "/account";
-
-      if (pathname === accountPath) {
-        if (!auth?.user) {
-          const url = request.nextUrl.clone();
-          url.pathname = loginPath;
-          url.searchParams.set("next", pathname);
-          return NextResponse.redirect(url);
-        }
-        return true;
-      }
-
-      if (pathname === loginPath || pathname === registerPath) {
-        if (auth?.user) {
-          const url = request.nextUrl.clone();
-          url.pathname = accountPath;
-          url.search = "";
-          return NextResponse.redirect(url);
-        }
-      }
-
-      return true;
-    },
-  },
 });
