@@ -1,0 +1,3 @@
+Изображения для статей (Unsplash, https://unsplash.com/license).
+Файлы: /assets/img/article-topics/{slug}-1.jpg … -3.jpg (подобраны по смыслу блока: сеть, дата-центр, AI/дашборды, команда и т.д.).
+Скачаны 2026-04-19 с images.unsplash.com (1680px, auto format). Укажите авторов при публикации по правилам Unsplash.

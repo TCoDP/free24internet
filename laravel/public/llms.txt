@@ -1,0 +1,57 @@
+# Свободный Интернет / Free Internet
+
+Цифровой сервис подписки на доступ: сайт, личный кабинет и Telegram-бот для оформления и продления.
+
+## Основные URL
+- Главная (RU): /
+- Home (EN): /en/
+- Условия / Terms: /terms, /en/terms
+- Конфиденциальность / Privacy: /privacy, /en/privacy
+- Инструкции / Guides: /manuals, /en/manuals
+
+## Для пользователей
+Оплата и выдача доступа выполняются через Telegram-бота. На сайте — регистрация, тарифы, тикеты поддержки, язык интерфейса.
+
+## Контакты
+- Telegram-бот: https://t.me/free24_internet_bot
+
+## Машиночитаемая карта сайта
+- Sitemap: /sitemap.xml
+
+## Статьи / Articles
+- [en] Best AI tools in 2026: how to choose without affiliate spam lists: /en/articles/best-ai-tools-2026
+- [en] How censorship circumvention evolves in 2026 (realistic playbook): /en/articles/bypass-blocks-2026
+- [en] Using ChatGPT at work: workflows, guardrails, and data safety: /en/articles/chatgpt-for-work
+- [en] How to choose a server for VPN: location, bandwidth, disk, and CPU headroom: /en/articles/choose-vpn-server-hardware
+- [en] CPU vs RAM for networking and VPN: where bottlenecks actually hide: /en/articles/cpu-vs-ram-networking
+- [en] What is Docker in simple terms: images, containers, and when it is not a tiny VM: /en/articles/docker-explained-simple
+- [en] How encryption works without equations: symmetric, asymmetric, and TLS in real life: /en/articles/encryption-explained
+- [en] How APIs work: requests, contracts, and what breaks in production: /en/articles/how-apis-work
+- [en] How DPI works: what ISPs can infer and why encryption is not enough: /en/articles/how-dpi-works
+- [en] How OpenAI works: models, APIs, and where the “magic” stops: /en/articles/how-openai-works
+- [en] How to choose a VPN in 2026: a practical guide without hype: /en/articles/kak-vybrat-vpn-2026
+- [en] Running a local neural network: hardware, quantization, honest expectations: /en/articles/local-llm-guide
+- [en] Node.js or Python: backend and automation in 2026: /en/articles/nodejs-vs-python-2026
+- [en] How to protect your data online: a practical guide without paranoia theater: /en/articles/protect-personal-data-online
+- [en] What is VLESS and how it works (without the magic marketing): /en/articles/vless-guide
+- [en] VLESS vs VMess: differences and what to pick in 2026: /en/articles/vless-vs-vmess
+- [en] How many users a VPS can handle: capacity planning without coffee-ground guessing: /en/articles/vps-how-many-users
+- [en] What a VPN is and why you need one (with honest limits): /en/articles/what-is-vpn-why-need
+- [ru] Лучшие AI-инструменты 2026: как выбирать без списков «топ-100 с партнёрскими ссылками»: /articles/best-ai-tools-2026
+- [ru] Как обойти блокировки в 2026: рабочие стратегии без сказок про «невидимость»: /articles/bypass-blocks-2026
+- [ru] Как использовать ChatGPT для работы: пайплайны, границы и безопасность данных: /articles/chatgpt-for-work
+- [ru] Как выбрать сервер для VPN: локация, канал, диск и «запас по CPU»: /articles/choose-vpn-server-hardware
+- [ru] CPU vs RAM для сетевых задач и VPN: куда утекает узкое место: /articles/cpu-vs-ram-networking
+- [ru] Что такое Docker простыми словами: образ, контейнер и зачем это не «мини-VM всегда»: /articles/docker-explained-simple
+- [ru] Как работает шифрование без формул: симметрия, асимметрия и TLS в жизни: /articles/encryption-explained
+- [ru] Как работает API: запросы, контракты и то, что ломается в проде: /articles/how-apis-work
+- [ru] Как работает DPI: что видит провайдер и почему «шифрование» не всё решает: /articles/how-dpi-works
+- [ru] Как работает OpenAI: модели, API и где заканчивается «магия»: /articles/how-openai-works
+- [ru] Как выбрать VPN в 2026 году: практичный гайд без воды и рекламных обещаний: /articles/kak-vybrat-vpn-2026
+- [ru] Как запустить локальную нейросеть: железо, квантизация и реальные ожидания: /articles/local-llm-guide
+- [ru] Node.js или Python: что выбрать в 2026 для бэкенда и автоматизации: /articles/nodejs-vs-python-2026
+- [ru] Как защитить свои данные в интернете: практический гайд без паранойи: /articles/protect-personal-data-online
+- [ru] Что такое VLESS и как он работает: протокол без лишней магии: /articles/vless-guide
+- [ru] VLESS и VMess: в чём разница и что выбрать в 2026 году: /articles/vless-vs-vmess
+- [ru] Сколько пользователей выдержит VPS: оценка нагрузки без гадания на кофейной гуще: /articles/vps-how-many-users
+- [ru] Что такое VPN и зачем он нужен: границы полезности без мифов: /articles/what-is-vpn-why-need

@@ -21,6 +21,9 @@ def _require(name: str) -> str:
 
 
 BOT_TOKEN = _require("BOT_TOKEN")
+
+# @username бота (без @) — ссылки t.me/…?start=ref_… для рефералов; совпадает с TELEGRAM_BOT_USERNAME на Laravel.
+TELEGRAM_BOT_USERNAME = os.getenv("TELEGRAM_BOT_USERNAME", "").strip().lstrip("@")
 PANEL_URL = _require("PANEL_URL").rstrip("/")
 PANEL_USER = _require("PANEL_USER")
 PANEL_PASS = _require("PANEL_PASS")
@@ -42,4 +45,8 @@ SITE_API_BASE = os.getenv("SITE_API_BASE", "").strip().rstrip("/")
 BOT_PAYMENT_SECRET = os.getenv("BOT_PAYMENT_SECRET", "").strip()
 
 START_PORT = int(os.getenv("START_PORT", "20000") or "20000")
+# Один общий VLESS+Reality inbound на этом порту (много клиентов, как в 3X-UI).
+SHARED_VLESS_PORT = int(os.getenv("SHARED_VLESS_PORT", str(START_PORT)) or str(START_PORT))
+SHARED_INBOUND_REMARK = os.getenv("SHARED_INBOUND_REMARK", "Shared_VLESS").strip() or "Shared_VLESS"
+SHARED_INBOUND_MAX_CLIENTS = int(os.getenv("SHARED_INBOUND_MAX_CLIENTS", "100") or "100")
 VPN_DOMAIN = _require("VPN_DOMAIN")

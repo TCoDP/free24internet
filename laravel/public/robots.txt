@@ -1,0 +1,81 @@
+# llms.txt: https://free24internet.vip/llms.txt (см. https://llmstxt.org/ )
+User-agent: *
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+Host: free24internet.vip
+
+User-agent: GPTBot
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: ChatGPT-User
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: Google-Extended
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: CCBot
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: anthropic-ai
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: Claude-Web
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: ClaudeBot
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: PerplexityBot
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: Applebot-Extended
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+User-agent: meta-externalagent
+Disallow: /account/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sub/
+Disallow: /dashboard
+
+Sitemap: https://free24internet.vip/sitemap.xml
